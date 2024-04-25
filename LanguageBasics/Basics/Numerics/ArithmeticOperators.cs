@@ -3,8 +3,8 @@ namespace Basics.Numerics;
 public class ArithmeticOperators {
 
     public static void Examples() {
-        int a = 20;
-        int b = 3;
+        const int a = 20;
+        const int b = 3;
 
         Console.WriteLine("{0} + {1} = {2}", a, b, ArithmeticOperators.Addition(a, b));
         Console.WriteLine("{0} - {1} = {2}", a, b, ArithmeticOperators.Subtraction(a, b));
