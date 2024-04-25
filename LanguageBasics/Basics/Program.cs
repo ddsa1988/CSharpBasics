@@ -2,6 +2,6 @@
 
 public class Program {
     public static void Main(string[] args) {
-        NumericSuffixes.Suffixes();
+        ArithmeticOperators.Examples();
     }
 }
