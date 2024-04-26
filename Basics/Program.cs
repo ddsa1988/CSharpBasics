@@ -1,7 +1,12 @@
-﻿namespace Basics;
+﻿using Basics.Strings;
+
+namespace Basics;
 
 public class Program {
     public static void Main(string[] args) {
-        RoundingErrors.Errors();
+        Characters.Char();
+        Console.WriteLine();
+
+        Characters.Unicode();
     }
 }
