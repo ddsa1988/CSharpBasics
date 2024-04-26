@@ -2,7 +2,6 @@ namespace Basics.Numerics;
 
 public class NumericConversions {
     public static void Conversions() {
-
         int a = int.MaxValue / 2;
         long b = a; //Implicit conversion
         short c = (short)a; //Explicit conversion

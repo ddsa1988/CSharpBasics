@@ -1,7 +1,6 @@
 namespace Basics.Numerics;
 
 public class ArithmeticOperators {
-
     public static void Examples() {
         const int a = 20;
         const int b = 3;
@@ -13,34 +12,29 @@ public class ArithmeticOperators {
         Console.WriteLine("{0} % {1} = {2}", a, b, ArithmeticOperators.Remainder(a, b));
     }
 
-    public static int Addition(int a, int b) {
+    private static int Addition(int a, int b) {
         return a + b;
     }
 
-    public static int Subtraction(int a, int b) {
+    private static int Subtraction(int a, int b) {
         return a - b;
     }
 
-    public static int Multiplication(int a, int b) {
+    private static int Multiplication(int a, int b) {
         return a * b;
     }
 
-    public static int Division(int a, int b) {
-        if (b == 0) {
-            Console.WriteLine("Impossible divide by zero.");
-            return int.MinValue;
-        }
-
-        return a / b;
+    private static int Division(int a, int b) {
+        if (b != 0) return a / b;
+        
+        Console.WriteLine("Impossible divide by zero.");
+        return int.MinValue;
     }
 
-    public static int Remainder(int a, int b) {
-        if (b == 0) {
-            Console.WriteLine("Impossible divide by zero.");
-            return int.MinValue;
-        }
-
-        return a % b;
+    private static int Remainder(int a, int b) {
+        if (b != 0) return a % b;
+        
+        Console.WriteLine("Impossible divide by zero.");
+        return int.MinValue;
     }
-
 }

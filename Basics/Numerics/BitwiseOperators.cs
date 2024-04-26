@@ -13,7 +13,8 @@ public class BitwiseOperators {
         const byte b = 0b1010_0110;
         const byte c = (byte)(a & b);
 
-        Console.WriteLine("AND => {0} & {1} = {2}", Convert.ToString(a, 2), Convert.ToString(b, 2), Convert.ToString(c, 2));
+        Console.WriteLine("AND => {0} & {1} = {2}", Convert.ToString(a, 2), Convert.ToString(b, 2),
+            Convert.ToString(c, 2));
     }
 
     public static void Or() {
@@ -21,7 +22,8 @@ public class BitwiseOperators {
         const byte b = 0b1010_0110;
         const byte c = (byte)(a | b);
 
-        Console.WriteLine("OR => {0} | {1} = {2}", Convert.ToString(a, 2), Convert.ToString(b, 2), Convert.ToString(c, 2));
+        Console.WriteLine("OR => {0} | {1} = {2}", Convert.ToString(a, 2), Convert.ToString(b, 2),
+            Convert.ToString(c, 2));
     }
 
     public static void OrExclusive() {
@@ -29,7 +31,8 @@ public class BitwiseOperators {
         const byte b = 0b1010_0110;
         const byte c = (byte)(a ^ b);
 
-        Console.WriteLine("OR EXCLUSIVE => {0} ^ {1} = {2}", Convert.ToString(a, 2), Convert.ToString(b, 2), Convert.ToString(c, 2));
+        Console.WriteLine("OR EXCLUSIVE => {0} ^ {1} = {2}", Convert.ToString(a, 2), Convert.ToString(b, 2),
+            Convert.ToString(c, 2));
     }
 
     public static void ShiftLeft() {
