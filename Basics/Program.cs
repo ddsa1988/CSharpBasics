@@ -1,12 +1,13 @@
-﻿using Basics.Strings;
-
-namespace Basics;
+﻿namespace Basics;
 
 public class Program {
     public static void Main(string[] args) {
-        Characters.Char();
+        StringType.Basics();
         Console.WriteLine();
-
-        Characters.Unicode();
+        
+        StringType.Verbatim();
+        Console.WriteLine();
+        
+        StringType.Concatenation();
     }
 }
