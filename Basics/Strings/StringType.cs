@@ -28,6 +28,33 @@ public class StringType {
     }
 
     public static void Concatenation() {
-        
+        const string a = "Diego" + " Alexndre";
+        string b = "10" + 5; //Uses the ToString method to convert a nonstring value
+
+        Console.WriteLine("\"Diego\" + \" Alexandre\" = " + a);
+        Console.WriteLine("string \"10\" + int 5 = " + b);
+    }
+
+    public static void Comparison() {
+        const string a = "Test";
+        const string b = "test";
+        const string c = "test";
+
+        Console.WriteLine($"{a} == {b} = {a == b}");
+        Console.WriteLine($"{b} == {c} = {b == c}");
+        Console.WriteLine();
+
+        string text = @"String.Compare(string1, string2, ignoreCase): 
+-1 if string1 comes before string2
+ 1 if string2 comes before string1
+ 0 if their position is the same (string1 and string2 are identical)";
+
+        Console.WriteLine($"{text}\n");
+
+        Console.WriteLine("Char 'T' in ASCII = " + (byte)a[0]);
+        Console.WriteLine("Char 't' in ASCII = " + (byte)b[0]);
+        Console.WriteLine($"string.Compare({b}, {a}) = {string.Compare(b, a)}");
+        Console.WriteLine($"string.Compare({a}, {b}) = {string.Compare(a, b)}");
+        Console.WriteLine($"string.Compare({b}, {c}) = {string.Compare(b, c)}");
     }
 }

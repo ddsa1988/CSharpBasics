@@ -9,5 +9,8 @@ public class Program {
         Console.WriteLine();
         
         StringType.Concatenation();
+        Console.WriteLine();
+
+        StringType.Comparison();
     }
 }
