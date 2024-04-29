@@ -57,4 +57,28 @@ public class StringType {
         Console.WriteLine($"string.Compare({a}, {b}) = {string.Compare(a, b)}");
         Console.WriteLine($"string.Compare({b}, {c}) = {string.Compare(b, c)}");
     }
+
+    public static void SortArrayOfStrings() {
+        string[] names = ["Rodrigo", "Diego", "Ivanice", "Bruno", "Amanda", "Tainara"];
+        Array.Sort( names );
+
+        PrintCollection<string>.Print(names);
+
+        for (int i = 0; i < names.Length; i++) {
+            for (int j = i + 1; j < names.Length; j++) {
+
+                string actual = names[i];
+                string next = names[j];
+
+                int compareResult = string.Compare(actual, next);
+
+                if (compareResult == 1) {
+                    names[i] = next;
+                    names[j] = actual;
+                }
+            }
+        }
+
+        PrintCollection<string>.Print(names);
+    }
 }
