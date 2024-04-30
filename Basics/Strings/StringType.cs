@@ -60,20 +60,21 @@ Zero => strA and strB are equal";
 
     public static void SortArrayOfStrings() {
         string[] names = ["Rodrigo", "Diego", "Ivanice", "Bruno", "Amanda", "Tainara"];
+        int arraySize = names.Length;
 
         PrintCollection<string>.Print(names);
 
-        for (int i = 0; i < names.Length; i++) {
-            for (int j = i + 1; j < names.Length; j++) {
-                string actual = names[i];
-                string next = names[j];
+        for (int i = 0; i < arraySize - 1; i++) {
+            for (int j = 0; j < arraySize - i - 1; j++) {
+                string actual = names[j];
+                string next = names[j + 1];
 
                 int compareResult = string.CompareOrdinal(actual, next);
 
                 if (compareResult <= 0) continue;
 
-                names[i] = next;
-                names[j] = actual;
+                names[j] = next;
+                names[j + 1] = actual;
             }
         }
 
