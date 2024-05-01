@@ -59,13 +59,15 @@ Zero => strA and strB are equal";
     }
 
     public static void SortArrayOfStrings() {
-        string[] names = ["Rodrigo", "Diego", "Ivanice", "Bruno", "Amanda", "Tainara"];
-        int arraySize = names.Length;
+        string[] names = ["Rodrigo", "Diego", "Mirelle", "Ivanice", "Zeus", "Amanda", "Tainara"];
+        int outerLoopSize = names.Length - 1;
 
         PrintCollection<string>.Print(names);
 
-        for (int i = 0; i < arraySize - 1; i++) {
-            for (int j = 0; j < arraySize - i - 1; j++) {
+        for (int i = 0; i < outerLoopSize; i++) {
+            int innerLoopSize = outerLoopSize - i;
+
+            for (int j = 0; j < innerLoopSize; j++) {
                 string actual = names[j];
                 string next = names[j + 1];
 
