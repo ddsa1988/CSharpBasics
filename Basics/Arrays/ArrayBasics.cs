@@ -9,7 +9,7 @@ public class ArrayBasics {
         Index last2 = ^1; //It's equal to vowels.Length - 1
 
         Console.Write("Array vowels: ");
-        PrintCollection<char>.Print(vowels);
+        PrintCollection.Print(vowels);
         Console.WriteLine($"vowels[{first}] = {vowels[first]}");
         Console.WriteLine($"vowels[{last1}] = {vowels[last1]}");
         Console.WriteLine($"vowels[{last2}] = {vowels[last2]}");
@@ -34,10 +34,10 @@ public class ArrayBasics {
         char[] arraySlice2 = vowels[sliceStart..sliceEnd];
 
         Console.Write($"Array slice => vowels.Skip({sliceStart}).Take({sliceEnd}).ToArray(): ");
-        PrintCollection<char>.Print(arraySlice1);
+        PrintCollection.Print(arraySlice1);
 
         Console.Write($"Array slice => vowels[{sliceStart}..{sliceEnd}]: ");
-        PrintCollection<char>.Print(arraySlice2);
+        PrintCollection.Print(arraySlice2);
     }
 
     private struct PointStruct {

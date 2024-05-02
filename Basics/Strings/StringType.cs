@@ -62,7 +62,7 @@ Zero => strA and strB are equal";
         string[] names = ["Rodrigo", "Diego", "Mirelle", "Ivanice", "Zeus", "Amanda", "Tainara"];
         int outerLoopSize = names.Length - 1;
 
-        PrintCollection<string>.Print(names);
+        PrintCollection.Print(names);
 
         for (int i = 0; i < outerLoopSize; i++) {
             int innerLoopSize = outerLoopSize - i;
@@ -80,6 +80,6 @@ Zero => strA and strB are equal";
             }
         }
 
-        PrintCollection<string>.Print(names);
+        PrintCollection.Print(names);
     }
 }

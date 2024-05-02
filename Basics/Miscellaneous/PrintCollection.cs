@@ -1,7 +1,7 @@
 namespace Basics.Miscellaneous;
 
-public class PrintCollection<T> {
-    public static void Print(IEnumerable<T> collection) {
+public class PrintCollection {
+    public static void Print<T>(IEnumerable<T> collection) {
         if (collection == null) return;
 
         int size = collection.Count();
