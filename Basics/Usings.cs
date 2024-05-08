@@ -5,3 +5,5 @@ global using Basics.Strings;
 global using Basics.Arrays;
 global using Basics.Miscellaneous;
 global using Basics.Parameters;
+global using Basics.NullOperators;
+global using Basics.Statements;
