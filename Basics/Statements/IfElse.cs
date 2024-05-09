@@ -2,8 +2,6 @@ namespace Basics.Statements;
 
 public class IfElse {
     public static void UserMain() {
-        string resultString;
-
         Console.Write("Type an integer number: ");
         string? userInput = Console.ReadLine();
 
@@ -14,11 +12,7 @@ public class IfElse {
             return;
         }
 
-        if (number % 2 == 0) {
-            resultString = "even";
-        } else {
-            resultString = "odd";
-        }
+        string resultString = number % 2 == 0 ? "even" : "odd";
 
         Console.WriteLine($"The number {number} is {resultString}.");
     }
