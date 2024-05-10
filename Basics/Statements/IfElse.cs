@@ -5,9 +5,9 @@ public class IfElse {
         Console.Write("Type an integer number: ");
         string? userInput = Console.ReadLine();
 
-        bool conversionResult = int.TryParse(userInput, out int number);
+        bool isUserInputValid = int.TryParse(userInput, out int number);
 
-        if (!conversionResult) {
+        if (!isUserInputValid) {
             Console.WriteLine("Invalid number!");
             return;
         }

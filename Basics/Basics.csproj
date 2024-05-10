@@ -8,7 +8,6 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Folder Include="Statements\" />
       <Folder Include="Strings\" />
     </ItemGroup>
 

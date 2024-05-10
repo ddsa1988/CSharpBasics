@@ -4,12 +4,12 @@ namespace Basics.Statements;
 
 public class Switch {
     public static void Statement() {
-        Console.Write("Type an card number from 1 up 13: ");
+        Console.Write("Type an card number from 1 up to 13: ");
         string? userInput = Console.ReadLine();
 
-        bool conversionResult = int.TryParse(userInput, out int number);
+        bool isUserInputValid = int.TryParse(userInput, out int number);
 
-        if (!conversionResult) {
+        if (!isUserInputValid) {
             Console.WriteLine("Invalid number!");
             return;
         }
