@@ -1,5 +1,3 @@
-using System.Linq.Expressions;
-
 namespace Basics.Statements;
 
 public class Switch {
