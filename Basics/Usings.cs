@@ -7,3 +7,4 @@ global using Basics.Miscellaneous;
 global using Basics.Parameters;
 global using Basics.NullOperators;
 global using Basics.Statements;
+global using Basics.Classes;
