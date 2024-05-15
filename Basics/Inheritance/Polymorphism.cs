@@ -4,8 +4,8 @@ public class Polymorphism {
     public static void UserMain() {
         List<Asset> assets = [
             new Asset("My asset"),
-            new Stock("My stock", 1000), //Upcasting to the base clas
-            new House("My house", 2000) //Upcasting to the base class
+            new Stock("My stock", 1000), //Upcast to the base clas
+            new House("My house", 2000) //Upcast to the base class
         ];
 
         Display(assets);

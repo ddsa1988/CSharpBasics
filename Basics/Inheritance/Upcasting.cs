@@ -3,7 +3,7 @@ namespace Basics.Inheritance;
 public class Upcasting {
     public static void UserMain() {
         Stock stock = new Stock("My stock", 1000);
-        Asset asset = stock;
+        Asset asset = stock; //Upcast
 
         Console.WriteLine("""
                           Stock stock = new Stock("My stock", 1000);
