@@ -1,9 +1,9 @@
 namespace FavoriteBands.Classes;
 
 public class Screens {
-    
+
     private static void Greeting() {
-        Console.WriteLine(@"🅵🅰🆅🅾🆁🅸🆃🅴 🅱🅰🅽🅳🆂");
+        Console.WriteLine("FAVORITE BANDS\n");
     }
 
     private static void ShowTitle(string title) {
@@ -22,7 +22,8 @@ public class Screens {
             { 3, "Evaluate a band" },
             { 4, "Show the average score from a band" }
         };
-        
+
+        Console.Clear();
         Greeting();
         ShowTitle("Main Menu");
 
@@ -51,7 +52,6 @@ public class Screens {
                 Console.WriteLine("Selected " + option);
                 break;
             default:
-                Console.Clear();
                 ShowMainMenu();
                 break;
         }
