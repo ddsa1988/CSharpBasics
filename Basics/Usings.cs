@@ -11,3 +11,4 @@ global using Basics.Classes;
 global using Basics.Inheritance;
 global using Basics.ObjectType;
 global using Basics.Structs;
+global using Basics.Interfaces;

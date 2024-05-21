@@ -17,9 +17,9 @@ public class Screens {
     public static void ShowMainMenu() {
         Dictionary<int, string> menuOptions = new Dictionary<int, string>() {
             { 0, "Exit" },
-            { 1, "Register a band" },
+            { 1, "Register band" },
             { 2, "Show all registered bands" },
-            { 3, "Evaluate a band" },
+            { 3, "Evaluate band" },
             { 4, "Show the average score from a band" }
         };
 
@@ -40,7 +40,7 @@ public class Screens {
                 Console.WriteLine("Exiting app...");
                 break;
             case 1:
-                Console.WriteLine("Selected " + option);
+                RegisterBandMenu();
                 break;
             case 2:
                 Console.WriteLine("Selected " + option);
@@ -55,5 +55,11 @@ public class Screens {
                 ShowMainMenu();
                 break;
         }
+    }
+
+    private static void RegisterBandMenu() {
+        Console.Clear();
+        ShowTitle("Register Band");
+        Console.Write("Type the band name: ");
     }
 }

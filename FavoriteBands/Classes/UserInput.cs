@@ -19,4 +19,16 @@ public class UserInput {
 
         return isOptionValid;
     }
+
+    private static string? GetUserBandName() {
+        string? bandName;
+        bool isBandNameValid;
+
+        do {
+            bandName = Console.ReadLine();
+            isBandNameValid = !(string.IsNullOrEmpty(bandName) || string.IsNullOrWhiteSpace(bandName));
+        } while (!isBandNameValid);
+
+        return bandName;
+    }
 }
