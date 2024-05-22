@@ -40,7 +40,7 @@ public class Menu {
         do {
             Console.Write("Type an option: ");
             string? userInput = Console.ReadLine();
-            
+
             isOptionValid = int.TryParse(userInput, out userOption);
         } while (!isOptionValid);
 
@@ -59,10 +59,10 @@ public class Menu {
                 ShowBandListMenu();
                 break;
             case 3:
-                Console.WriteLine("Selected " + option);
+                ShowEvaluateBandMenu();
                 break;
             case 4:
-                Console.WriteLine("Selected " + option);
+                ShowAvgScoreMenu();
                 break;
             default:
                 ShowMainMenu();
@@ -76,12 +76,8 @@ public class Menu {
 
         do {
             Console.Clear();
-
             ShowTitle("Register Band");
-            Console.Write("Type the band name: ");
-            bandName = Console.ReadLine();
-
-            isBandNameValid = !(string.IsNullOrEmpty(bandName) || string.IsNullOrWhiteSpace(bandName));
+            isBandNameValid = TryGetBandName(out bandName);
         } while (!isBandNameValid);
 
         DataModel.AddItem(bandName);
@@ -94,8 +90,47 @@ public class Menu {
         Console.Clear();
         ShowTitle("Bands Registered");
 
-        DataModel.ShowItems();
+        DataModel.PrintItemsKeys();
         Console.WriteLine();
+        WaitKeyPressed();
+    }
+
+    private static void ShowEvaluateBandMenu() {
+        string? bandName;
+        bool isBandNameValid;
+
+        do {
+            Console.Clear();
+            ShowTitle("Evaluate Band");
+            isBandNameValid = TryGetBandName(out bandName);
+        } while (!isBandNameValid);
+
+        if (DataModel.ListContainsKey(bandName)) {
+            Console.WriteLine("Band is in the lis.");
+        } else {
+            Console.WriteLine("There is no band with this name in the list.");
+        }
+
+        WaitKeyPressed();
+    }
+
+    private static void ShowAvgScoreMenu() {
+        Console.Clear();
+        ShowTitle("Average Scores From Bands");
+
+        DataModel.PrintItemsValues();
+        Console.WriteLine();
+        WaitKeyPressed();
+    }
+
+    private static bool TryGetBandName(out string? bandName) {
+        Console.Write("Type the band name: ");
+        bandName = Console.ReadLine();
+
+        return !(string.IsNullOrEmpty(bandName) || string.IsNullOrWhiteSpace(bandName));
+    }
+
+    private static void WaitKeyPressed() {
         Console.Write("Press any key to exit...");
         Console.ReadKey();
     }
