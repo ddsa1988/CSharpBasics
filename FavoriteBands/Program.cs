@@ -5,9 +5,9 @@ public class Program {
         int userOption = 0;
 
         do {
-            Screens.ShowMainMenu();
-            userOption = UserInput.GetUserOption();
-            Screens.SelectMenu(userOption);
+            Menu.ShowMainMenu();
+            userOption = Menu.GetUserOption();
+            Menu.SelectMenu(userOption);
         } while (userOption != 0);
     }
 }

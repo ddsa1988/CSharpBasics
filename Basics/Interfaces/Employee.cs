@@ -4,7 +4,7 @@ public class Employee : IEmployee, IManager {
     private int id;
     private double baseSalary;
     private double bonusAmount;
-    private double expenseAllownce;
+    private double expenseAllowance;
 
     public string Name { get; set; } = string.Empty;
 
@@ -23,8 +23,8 @@ public class Employee : IEmployee, IManager {
         set => bonusAmount = value >= 0 ? value : 0;
     }
     public double ExpenseAllowance {
-        get => expenseAllownce;
-        set => expenseAllownce = value >= 0 ? value : 0;
+        get => expenseAllowance;
+        set => expenseAllowance = value >= 0 ? value : 0;
     }
 
     public void ShowData() {

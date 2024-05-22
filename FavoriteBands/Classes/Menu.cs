@@ -1,7 +1,6 @@
 namespace FavoriteBands.Classes;
 
-public class Screens {
-
+public class Menu {
     private static void Greeting() {
         Console.WriteLine("FAVORITE BANDS\n");
     }
@@ -34,6 +33,20 @@ public class Screens {
         Console.WriteLine();
     }
 
+    public static int GetUserOption() {
+        int userOption;
+        bool isOptionValid;
+
+        do {
+            Console.Write("Type an option: ");
+            string? userInput = Console.ReadLine();
+            
+            isOptionValid = int.TryParse(userInput, out userOption);
+        } while (!isOptionValid);
+
+        return userOption;
+    }
+
     public static void SelectMenu(int option) {
         switch (option) {
             case 0:
@@ -43,7 +56,7 @@ public class Screens {
                 RegisterBandMenu();
                 break;
             case 2:
-                Console.WriteLine("Selected " + option);
+                ShowBandListMenu();
                 break;
             case 3:
                 Console.WriteLine("Selected " + option);
@@ -58,8 +71,32 @@ public class Screens {
     }
 
     private static void RegisterBandMenu() {
+        string? bandName;
+        bool isBandNameValid;
+
+        do {
+            Console.Clear();
+
+            ShowTitle("Register Band");
+            Console.Write("Type the band name: ");
+            bandName = Console.ReadLine();
+
+            isBandNameValid = !(string.IsNullOrEmpty(bandName) || string.IsNullOrWhiteSpace(bandName));
+        } while (!isBandNameValid);
+
+        DataModel.AddItem(bandName);
+
+        Console.WriteLine($"The Band {bandName} was registered...");
+        Thread.Sleep(2000);
+    }
+
+    private static void ShowBandListMenu() {
         Console.Clear();
-        ShowTitle("Register Band");
-        Console.Write("Type the band name: ");
+        ShowTitle("Bands Registered");
+
+        DataModel.ShowItems();
+        Console.WriteLine();
+        Console.Write("Press any key to exit...");
+        Console.ReadKey();
     }
 }
