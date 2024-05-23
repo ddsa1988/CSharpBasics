@@ -2,7 +2,7 @@
 
 public class DataModel {
     private static readonly Dictionary<string, List<float>> BandList = new Dictionary<string, List<float>>() {
-        { "ACDC", [10, 5, 6] },
+        { "Exodus", [10, 5, 6] },
         { "Metallica", [10, 5, 6, 5] },
         { "Iron Maiden", [10, 5, 6, 4, 3] }
     };
@@ -16,13 +16,21 @@ public class DataModel {
         return true;
     }
 
+    public static bool AddValue(string? key, float value) {
+        if (key == null || !ListContainsKey(key)) return false;
+
+        BandList[key].Add(value);
+
+        return true;
+    }
+
     public static void PrintItemsKeys() {
         if (BandList.Count > 0) {
-            foreach (var band in BandList) {
-                Console.WriteLine("Band: " + band.Key);
+            foreach (string bandName in BandList.Keys) {
+                Console.WriteLine("Band: " + bandName);
             }
         } else {
-            Console.WriteLine("The list of bands is empty.");
+            Console.WriteLine("The list of bands is2 empty.");
         }
     }
 
@@ -40,7 +48,7 @@ public class DataModel {
                 }
 
                 Console.Write(band.Value[band.Value.Count - 1] + "]");
-                Console.Write($" => Avg: {CalculateScoreAvg(band.Value)}\n");
+                Console.Write($" => Avg: {band.Value.Average()}\n");
             }
         } else {
             Console.WriteLine("The list of bands is empty.");
@@ -48,21 +56,6 @@ public class DataModel {
     }
 
     public static bool ListContainsKey(string? key) {
-        return BandList.ContainsKey(key);
-    }
-
-    public static float CalculateScoreAvg(List<float> scores) {
-        float sum = 0.0F;
-        float avg = 0.0F;
-
-        if (scores.Count < 1) return avg;
-
-        foreach (float score in scores) {
-            sum += score;
-        }
-
-        avg = sum / scores.Count;
-
-        return avg;
+        return key != null && BandList.ContainsKey(key);
     }
 }

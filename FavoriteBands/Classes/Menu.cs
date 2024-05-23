@@ -13,7 +13,7 @@ public class Menu {
         Console.WriteLine(specialChar + "\n");
     }
 
-    public static void ShowMainMenu() {
+    public static void MainMenu() {
         Dictionary<int, string> menuOptions = new Dictionary<int, string>() {
             { 0, "Exit" },
             { 1, "Register band" },
@@ -53,24 +53,24 @@ public class Menu {
                 Console.WriteLine("Exiting app...");
                 break;
             case 1:
-                RegisterBandMenu();
+                RegisterBand();
                 break;
             case 2:
-                ShowBandListMenu();
+                RegisteredBands();
                 break;
             case 3:
-                ShowEvaluateBandMenu();
+                EvaluateBand();
                 break;
             case 4:
-                ShowAvgScoreMenu();
+                BandsAvgScore();
                 break;
             default:
-                ShowMainMenu();
+                MainMenu();
                 break;
         }
     }
 
-    private static void RegisterBandMenu() {
+    private static void RegisterBand() {
         string? bandName;
         bool isBandNameValid;
 
@@ -86,16 +86,16 @@ public class Menu {
         Thread.Sleep(2000);
     }
 
-    private static void ShowBandListMenu() {
+    private static void RegisteredBands() {
         Console.Clear();
-        ShowTitle("Bands Registered");
+        ShowTitle("Registered Bands ");
 
         DataModel.PrintItemsKeys();
         Console.WriteLine();
         WaitKeyPressed();
     }
 
-    private static void ShowEvaluateBandMenu() {
+    private static void EvaluateBand() {
         string? bandName;
         bool isBandNameValid;
 
@@ -106,7 +106,24 @@ public class Menu {
         } while (!isBandNameValid);
 
         if (DataModel.ListContainsKey(bandName)) {
-            Console.WriteLine("Band is in the lis.");
+            float score = 0.0F;
+            bool isScoreValid = false;
+
+            while (!isScoreValid) {
+                Console.Write("Type the band score: ");
+                string? userInput = Console.ReadLine();
+
+                isScoreValid = float.TryParse(userInput, out score) && score >= 0.0F && score <= 10.0F;
+
+                if (isScoreValid) break;
+
+                Console.WriteLine("Invalid score.");
+            }
+
+            DataModel.AddValue(bandName, score);
+
+            Console.WriteLine("Score registered!");
+            
         } else {
             Console.WriteLine("There is no band with this name in the list.");
         }
@@ -114,9 +131,9 @@ public class Menu {
         WaitKeyPressed();
     }
 
-    private static void ShowAvgScoreMenu() {
+    private static void BandsAvgScore() {
         Console.Clear();
-        ShowTitle("Average Scores From Bands");
+        ShowTitle("Bands Average Score");
 
         DataModel.PrintItemsValues();
         Console.WriteLine();

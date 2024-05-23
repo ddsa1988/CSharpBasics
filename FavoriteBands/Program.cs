@@ -5,7 +5,7 @@ public class Program {
         int userOption = 0;
 
         do {
-            Menu.ShowMainMenu();
+            Menu.MainMenu();
             userOption = Menu.GetUserOption();
             Menu.SelectMenu(userOption);
         } while (userOption != 0);
