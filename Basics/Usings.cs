@@ -13,3 +13,4 @@ global using Basics.ObjectType;
 global using Basics.Structs;
 global using Basics.Interfaces;
 global using Basics.Enums;
+global using Basics.Generics;
