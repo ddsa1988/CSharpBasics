@@ -1,6 +1,6 @@
 ﻿namespace Basics.Generics;
 
-public class GenericsBasics {
+public class GenericBasics {
     public static void UserMain() {
         Stack<int> intStack = new Stack<int>(5);
         Stack<string> strStack = new Stack<string>(10);
