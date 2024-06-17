@@ -12,10 +12,15 @@ public class SimpleStack<T> {
         stack = new T[Size];
     }
 
-    public bool Push(T element) {
+    public int Size {
+        get => size;
+        private set => size = value > 0 ? value : 0;
+    }
+
+    public bool Push(T item) {
         if (IsFull()) return false;
 
-        stack[Count++] = element;
+        stack[Count++] = item;
 
         return true;
     }
@@ -24,24 +29,19 @@ public class SimpleStack<T> {
         if (IsEmpty()) return default;
 
         int index = --Count;
-        T? element = stack[index];
+        T? item = stack[index];
         stack[index] = default;
 
-        return element;
+        return item;
     }
 
     public T? Peek() {
         if (IsEmpty()) return default;
 
         int index = Count - 1;
-        T? element = stack[index];
+        T? item = stack[index];
 
-        return element;
-    }
-
-    public int Size {
-        get => size;
-        private set => size = value > 0 ? value : 0;
+        return item;
     }
 
     public bool IsEmpty() => Count == 0;
@@ -62,7 +62,7 @@ public class SimpleStack<T> {
 
         Size = newSize;
         stack = new T[Size];
-        Count = aux.Length < Size ? aux.Length : Size;
+        Count = Count > Size ? Size : Count;
 
         for (int i = 0; i < Count; i++) {
             stack[i] = aux[i];
