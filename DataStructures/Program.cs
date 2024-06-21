@@ -1,21 +1,23 @@
-﻿using DataStructures.Deque;
+﻿using DataStructures.LinkedList;
+using DataStructures.Models;
 
 namespace DataStructures;
 
 public class Program {
     public static void Main(string[] args) {
-        SimpleDeque<int> deque = new SimpleDeque<int>(10);
+        Person p1 = new Person("Diego");
+        Person p2 = new Person("Amanda");
+        Person p3 = new Person("Diego");
 
-        deque.AddFront(10);
-        deque.AddBack(20);
-        deque.AddBack(30);
-        deque.AddFront(50);
-        deque.AddBack(60);
-        deque.AddFront(800);
-        Console.WriteLine(deque);
-        Console.WriteLine(deque.Count);
-        deque.RemoveFront();
-        Console.WriteLine(deque);
-        Console.WriteLine(deque.Count);
+        Node<Person> n1 = new Node<Person>(p1);
+        Node<Person> n2 = new Node<Person>(p2);
+        Node<Person> n3 = new Node<Person>(p3);
+
+        Console.WriteLine(p1.Equals(p2));
+        Console.WriteLine(p1.Equals(p3));
+        Console.WriteLine();
+        
+        Console.WriteLine(n1.Equals(n2));
+        Console.WriteLine(n1.Equals(n3));
     }
 }
