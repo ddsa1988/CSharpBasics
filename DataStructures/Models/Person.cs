@@ -1,12 +1,16 @@
 namespace DataStructures.Models;
 
 public class Person {
-    private string name;
+    private string name = string.Empty;
     private DateTime birthdate;
-
 
     public Person(string name) {
         Name = name;
+        Birthdate = DateTime.Now;
+    }
+
+    public Person(string name, DateTime birthdate) : this(name) {
+        Birthdate = birthdate;
     }
 
     public string Name {
@@ -48,6 +52,6 @@ public class Person {
     }
 
     public override string ToString() {
-        return $"Name: {Name} Birthdate: {Birthdate.ToShortDateString} Age: {Age}";
+        return $"Name: {Name} Birthdate: {Birthdate.ToShortDateString()} Age: {Age}";
     }
 }
