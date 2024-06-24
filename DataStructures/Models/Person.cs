@@ -1,7 +1,7 @@
 namespace DataStructures.Models;
 
 public class Person {
-    private string name = string.Empty;
+    private readonly string name = string.Empty;
     private DateTime birthdate;
 
     public Person(string name) {
@@ -52,6 +52,6 @@ public class Person {
     }
 
     public override string ToString() {
-        return $"Name: {Name} Birthdate: {Birthdate.ToShortDateString()} Age: {Age}";
+        return $"Name: {Name}; Birthdate: {Birthdate.ToShortDateString()}; Age: {Age}";
     }
 }
