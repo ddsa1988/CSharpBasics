@@ -1,13 +1,13 @@
 namespace Basics.Classes;
 
-public class Person {
+public class BasicPerson {
     private string fullName = string.Empty;
     private DateTime dateOfBirth;
     private long id;
 
-    public Person() { }
+    public BasicPerson() { }
 
-    public Person(string fullName, DateTime dateOfBirth, long id) {
+    public BasicPerson(string fullName, DateTime dateOfBirth, long id) {
         FullName = fullName;
         DateOfBirth = dateOfBirth;
         Id = id;
@@ -64,9 +64,9 @@ public class Person {
     }
 
     public override bool Equals(object? obj) {
-        if (obj is not Person) return false;
+        if (obj is not BasicPerson) return false;
 
-        Person? other = obj as Person;
+        BasicPerson? other = obj as BasicPerson;
 
         return Id == other?.Id;
     }

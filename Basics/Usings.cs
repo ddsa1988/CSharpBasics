@@ -1,5 +1,6 @@
 global using System.Text;
 
+global using Basics.Models;
 global using Basics.Numerics;
 global using Basics.Strings;
 global using Basics.Arrays;

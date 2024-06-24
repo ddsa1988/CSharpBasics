@@ -1,11 +1,11 @@
 namespace Basics.Inheritance;
 
-public class Student : Person {
+public class BasicStudent : BasicPerson {
     private long register;
 
-    public Student() { }
+    public BasicStudent() { }
 
-    public Student(string fullName, DateTime dateOfBirth, long id, long register) : base(fullName, dateOfBirth, id) {
+    public BasicStudent(string fullName, DateTime dateOfBirth, long id, long register) : base(fullName, dateOfBirth, id) {
         Register = register;
     }
 
@@ -19,7 +19,7 @@ public class Student : Person {
     }
 
     public static void UserMain() {
-        Student student = new Student("Diego", new DateTime(1988, 1, 22), 10, 500);
+        BasicStudent student = new BasicStudent("Diego", new DateTime(1988, 1, 22), 10, 500);
         Console.WriteLine(student);
     }
 }
