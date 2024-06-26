@@ -1,4 +1,7 @@
-namespace UsingAPI;
+using System.Text.Json;
+using UsingAPI.Models;
+
+namespace UsingAPI.Examples;
 
 public class Example002 {
     public static void UserMain() {
@@ -12,7 +15,13 @@ public class Example002 {
         try {
             string answer = await client.GetStringAsync(
                 "https://raw.githubusercontent.com/ArthurOcFernandes/Exerc-cios-C-/curso-4-aula-2/Jsons/TopMovies.json");
-            Console.WriteLine(answer);
+
+            //Console.WriteLine(answer);
+
+            List<Movie>? movies = JsonSerializer.Deserialize<List<Movie>>(answer);
+
+            PrintCollection.Print(movies);
+
         } catch (Exception e) {
             Console.WriteLine(e.Message);
         }
