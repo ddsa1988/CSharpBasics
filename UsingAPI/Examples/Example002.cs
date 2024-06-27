@@ -6,6 +6,8 @@ namespace UsingAPI.Examples;
 public class Example002 {
     public static void UserMain() {
         ShowMovies();
+
+        Console.WriteLine("Press any key...");
         Console.ReadKey();
     }
 
