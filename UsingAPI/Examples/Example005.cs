@@ -20,7 +20,7 @@ public class Example005 {
 
             List<Book>? books = JsonSerializer.Deserialize<List<Book>>(answer);
 
-            PrintCollection.Print(books);
+            PrintCollection.Print(books, "\n");
 
         } catch (Exception e) {
             Console.WriteLine(e.Message);

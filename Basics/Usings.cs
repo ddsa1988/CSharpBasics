@@ -1,5 +1,4 @@
 global using System.Text;
-
 global using Basics.Models;
 global using Basics.Numerics;
 global using Basics.Strings;
@@ -15,3 +14,4 @@ global using Basics.Structs;
 global using Basics.Interfaces;
 global using Basics.Enums;
 global using Basics.Generics;
+global using Basics.Delegates;
