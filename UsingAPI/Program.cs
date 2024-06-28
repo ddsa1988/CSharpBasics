@@ -5,6 +5,6 @@ namespace UsingAPI;
 
 public class Program {
     public static void Main(string[] args) {
-        Exercise001.UserMain();
+        Exercise003.UserMain();
     }
 }
