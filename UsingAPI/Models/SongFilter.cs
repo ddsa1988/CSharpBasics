@@ -7,21 +7,23 @@ public class SongFilter {
         PrintCollection.Print(genres, "");
     }
 
-    public static void OrderByName(List<Song> songs) {
-        List<Song> songsOrdered = songs.OrderBy((song => song.Artist)).ToList();
+    public static void ByArtist(List<Song> songs) {
+        IEnumerable<string> artists = songs.OrderBy((song => song.Artist)).Select((song => song.Artist)).Distinct();
 
-        PrintCollection.Print(songsOrdered, "\n");
+        PrintCollection.Print(artists, "");
     }
 
     public static void ArtistByGenre(List<Song> songs, string genre) {
-        List<Song> songsOrdered = songs.Where((song => song.Genre == genre)).ToList();
+        IEnumerable<string> artists =
+            songs.Where((song => song.Genre.Contains(genre))).Select((song => song.Artist)).Distinct();
 
-        PrintCollection.Print(songsOrdered, "\n");
+        PrintCollection.Print(artists, "");
     }
 
-    public static void ByArtistName(List<Song> songs, string artist) {
-        List<Song> songsOrdered = songs.Where((song => song.Artist == artist)).ToList();
+    public static void SongByArtistName(List<Song> songs, string artist) {
+        IEnumerable<string> songsOrdered =
+            songs.Where((song => song.Artist.Contains(artist))).Select((song => song.Name)).Distinct();
 
-        PrintCollection.Print(songsOrdered, "\n");
+        PrintCollection.Print(songsOrdered, "");
     }
 }

@@ -6,8 +6,7 @@ namespace UsingAPI.Examples;
 public class Example004 {
     public static void UserMain() {
         ShowCars();
-
-        Console.WriteLine("Press any key...");
+        
         Console.ReadKey();
     }
 

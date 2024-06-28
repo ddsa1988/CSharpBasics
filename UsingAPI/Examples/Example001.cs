@@ -6,8 +6,7 @@ namespace UsingAPI.Examples;
 public class Example001 {
     public static void UserMain() {
         ShowSongs();
-
-        Console.WriteLine("Press any key...");
+        
         Console.ReadKey();
     }
 
@@ -25,9 +24,9 @@ public class Example001 {
             if (songs == null) return;
 
             // SongFilter.ByGenre(songs);
-            // SongFilter.OrderByName(songs);
+            // SongFilter.ByArtist(songs);
             // SongFilter.ArtistByGenre(songs, "rock");
-            SongFilter.ByArtistName(songs, "U2");
+            SongFilter.SongByArtistName(songs, "U2");
             
             // Console.WriteLine(songs.Count);
             //

@@ -6,8 +6,7 @@ namespace UsingAPI.Examples;
 public class Example003 {
     public static void UserMain() {
         ShowCountries();
-
-        Console.WriteLine("Press any key...");
+        
         Console.ReadKey();
     }
 

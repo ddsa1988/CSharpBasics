@@ -1,9 +1,10 @@
 ﻿using UsingAPI.Examples;
+using UsingAPI.Exercises;
 
 namespace UsingAPI;
 
 public class Program {
     public static void Main(string[] args) {
-        Example001.UserMain();
+        Exercise001.UserMain();
     }
 }
