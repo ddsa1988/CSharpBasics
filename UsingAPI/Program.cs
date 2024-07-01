@@ -5,6 +5,10 @@ namespace UsingAPI;
 
 public class Program {
     public static void Main(string[] args) {
-        Exercise003.UserMain();
+        Example006.UserMain();
+
+        char sepChar = Path.DirectorySeparatorChar;
+
+        Console.WriteLine(sepChar);
     }
 }
