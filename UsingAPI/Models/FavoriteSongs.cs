@@ -26,7 +26,8 @@ public class FavoriteSongs {
             listSongs = songs
         });
 
-        string fileName = $"favorite-songs-{Name}.json";
+        char sepChar = Path.DirectorySeparatorChar;
+        string fileName = $"..{sepChar}..{sepChar}..{sepChar}Files{sepChar}favorite-songs-{Name}.json";
 
         File.WriteAllText(fileName, json);
 

@@ -23,7 +23,9 @@ public class DelegatesMulticast {
     private static void WriteProgressToConsole(int percentComplete) => Console.WriteLine(percentComplete);
 
     private static void WriteProgressToFile(int percentComplete) {
-        const string fileName = "progress.txt";
+        char sepChar = Path.DirectorySeparatorChar;
+        string fileName = $"..{sepChar}..{sepChar}..{sepChar}Files{sepChar}progress.txt";
+
         File.WriteAllText(fileName, percentComplete.ToString());
         Console.WriteLine(Path.GetFullPath(fileName));
     }
