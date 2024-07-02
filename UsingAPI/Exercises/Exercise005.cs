@@ -10,11 +10,12 @@ public class Exercise005 {
 
         Person p1 = new Person("Diego", new DateTime(1988, 1, 22), "diego@hotmail.com");
 
-        string json = JsonSerializer.Serialize(p1);
-        File.WriteAllText(fileName, json);
+        string writeJson = JsonSerializer.Serialize(p1);
+        File.WriteAllText(fileName, writeJson);
 
         try {
-            Person? p2 = JsonSerializer.Deserialize<Person>(json);
+            string readJson = File.ReadAllText(fileName);
+            Person? p2 = JsonSerializer.Deserialize<Person>(readJson);
             Console.WriteLine(p2);
         } catch (Exception e) {
             Console.WriteLine(e);
