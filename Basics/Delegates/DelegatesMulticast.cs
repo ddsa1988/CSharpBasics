@@ -27,7 +27,6 @@ public class DelegatesMulticast {
         string fileName = $"..{sepChar}..{sepChar}..{sepChar}Files{sepChar}progress.txt";
 
         File.WriteAllText(fileName, percentComplete.ToString());
-        Console.WriteLine(Path.GetFullPath(fileName));
     }
 
     private delegate int Transformer(int x);
