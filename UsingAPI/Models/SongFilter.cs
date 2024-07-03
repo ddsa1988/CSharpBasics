@@ -26,4 +26,10 @@ public class SongFilter {
 
         PrintCollection.Print(songsOrdered, "");
     }
+
+    public static void SongByKey(List<Song> songs, string tone) {
+        IEnumerable<Song> songsOrdered = songs.Where((song => song.Tone.Equals(tone)));
+
+        PrintCollection.Print(songsOrdered, "\n");
+    }
 }

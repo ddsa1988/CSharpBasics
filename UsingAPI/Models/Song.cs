@@ -1,18 +1,30 @@
+using System.Diagnostics.CodeAnalysis;
 using System.Text.Json.Serialization;
 
 namespace UsingAPI.Models;
 
 public class Song {
+    private readonly string[] tones = ["C", "C#", "D", "Eb", "E", "F", "F#", "G", "Ab", "A", "Bb", "B"];
     [JsonPropertyName("song")] public string Name { get; init; } = string.Empty;
     [JsonPropertyName("artist")] public string Artist { get; init; } = string.Empty;
     [JsonPropertyName("genre")] public string Genre { get; init; } = string.Empty;
     [JsonPropertyName("duration_ms")] public long Duration { get; init; }
+    [JsonPropertyName("key")] public int Key { get; init; }
+
+    public string Tone {
+        get {
+            bool isKeyValid = Key >= 0 && Key < tones.Length;
+
+            return isKeyValid ? tones[Key] : string.Empty;
+        }
+    }
 
     public override string ToString() {
         return "Song: " + Name +
                "\nArtist: " + Artist +
                "\nGenre: " + Genre +
-               "\nDuration: " + Duration / 1000 + " seconds";
+               "\nDuration: " + Duration / 1000 + " seconds" +
+               "\nTone: " + Tone;
     }
 
     public override int GetHashCode() {
