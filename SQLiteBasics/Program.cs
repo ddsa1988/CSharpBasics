@@ -1,11 +1,9 @@
-﻿using Microsoft.Data.Sqlite;
-using SQLiteBasics.Utils;
+﻿using SQLiteBasics.Utils;
 
 namespace SQLiteBasics;
 
 public class Program {
     public static void Main(string[] args) {
-
         ManageDatabase.CreateTable();
         ManageDatabase.Insert("Diego");
         ManageDatabase.Insert("Amanda");
