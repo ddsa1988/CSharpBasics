@@ -3,18 +3,18 @@
 namespace DataStructures.Deque;
 
 public class SimpleDeque<T> {
-    private T?[] deque;
-    private int size;
+    private T?[] _deque;
+    private int _size;
     public int Count { get; private set; } = 0;
 
     public SimpleDeque(int size) {
         Size = size;
-        deque = new T[Size];
+        _deque = new T[Size];
     }
 
     public int Size {
-        get => size;
-        private set => size = value > 0 ? value : 0;
+        get => _size;
+        private set => _size = value > 0 ? value : 0;
     }
 
     public bool AddFront(T item) {
@@ -23,10 +23,10 @@ public class SimpleDeque<T> {
         if (IsEmpty()) return AddBack(item);
 
         for (int i = Count; i > 0; i--) {
-            deque[i] = deque[i - 1];
+            _deque[i] = _deque[i - 1];
         }
 
-        deque[0] = item;
+        _deque[0] = item;
         Count++;
 
         return true;
@@ -35,7 +35,7 @@ public class SimpleDeque<T> {
     public bool AddBack(T item) {
         if (IsFull()) return false;
 
-        deque[Count++] = item;
+        _deque[Count++] = item;
 
         return true;
     }
@@ -43,13 +43,13 @@ public class SimpleDeque<T> {
     public T? RemoveFront() {
         if (IsEmpty()) return default;
 
-        T? item = deque[0];
+        T? item = _deque[0];
 
         for (int i = 0; i < Count - 1; i++) {
-            deque[i] = deque[i + 1];
+            _deque[i] = _deque[i + 1];
         }
 
-        deque[--Count] = default;
+        _deque[--Count] = default;
 
         return item;
     }
@@ -58,8 +58,8 @@ public class SimpleDeque<T> {
         if (IsEmpty()) return default;
 
         int index = --Count;
-        T? item = deque[index];
-        deque[index] = default;
+        T? item = _deque[index];
+        _deque[index] = default;
 
         return item;
     }
@@ -67,7 +67,7 @@ public class SimpleDeque<T> {
     public T? PeekFront() {
         if (IsEmpty()) return default;
 
-        T? item = deque[0];
+        T? item = _deque[0];
 
         return item;
     }
@@ -75,7 +75,7 @@ public class SimpleDeque<T> {
     public T? PeekBack() {
         if (IsEmpty()) return default;
 
-        T? item = deque[Count - 1];
+        T? item = _deque[Count - 1];
 
         return item;
     }
@@ -88,15 +88,15 @@ public class SimpleDeque<T> {
         T?[] aux = new T[Size];
 
         for (int i = 0; i < Count; i++) {
-            aux[i] = deque[i];
+            aux[i] = _deque[i];
         }
 
         Size = newSize;
-        deque = new T[Size];
+        _deque = new T[Size];
         Count = Count > Size ? Size : Count;
 
         for (int i = 0; i < Count; i++) {
-            deque[i] = aux[i];
+            _deque[i] = aux[i];
         }
     }
 
@@ -106,10 +106,10 @@ public class SimpleDeque<T> {
         StringBuilder sb = new StringBuilder("[");
 
         for (int i = 0; i < Count - 1; i++) {
-            sb.Append(deque[i] + ", ");
+            sb.Append(_deque[i] + ", ");
         }
 
-        sb.Append(deque[Count - 1] + "]");
+        sb.Append(_deque[Count - 1] + "]");
 
         return sb.ToString();
     }

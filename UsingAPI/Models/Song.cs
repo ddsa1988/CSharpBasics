@@ -4,7 +4,7 @@ using System.Text.Json.Serialization;
 namespace UsingAPI.Models;
 
 public class Song {
-    private readonly string[] tones = ["C", "C#", "D", "Eb", "E", "F", "F#", "G", "Ab", "A", "Bb", "B"];
+    private readonly string[] _tones = ["C", "C#", "D", "Eb", "E", "F", "F#", "G", "Ab", "A", "Bb", "B"];
     [JsonPropertyName("song")] public string Name { get; init; } = string.Empty;
     [JsonPropertyName("artist")] public string Artist { get; init; } = string.Empty;
     [JsonPropertyName("genre")] public string Genre { get; init; } = string.Empty;
@@ -13,9 +13,9 @@ public class Song {
 
     public string Tone {
         get {
-            bool isKeyValid = Key >= 0 && Key < tones.Length;
+            bool isKeyValid = Key >= 0 && Key < _tones.Length;
 
-            return isKeyValid ? tones[Key] : string.Empty;
+            return isKeyValid ? _tones[Key] : string.Empty;
         }
     }
 

@@ -1,9 +1,9 @@
 namespace Basics.Classes;
 
 public class BasicPerson {
-    private string fullName = string.Empty;
-    private DateTime dateOfBirth;
-    private long id;
+    private string _fullName = string.Empty;
+    private DateTime _dateOfBirth;
+    private long _id;
 
     public BasicPerson() { }
 
@@ -14,23 +14,23 @@ public class BasicPerson {
     }
 
     public string FullName {
-        get => fullName;
-        set => fullName = string.IsNullOrWhiteSpace(value) ? "" : value;
+        get => _fullName;
+        set => _fullName = string.IsNullOrWhiteSpace(value) ? "" : value;
     }
 
     public DateTime DateOfBirth {
-        get => dateOfBirth;
+        get => _dateOfBirth;
         set {
             DateTime now = DateTime.Now;
             TimeSpan timeSpan = now - value;
 
-            dateOfBirth = timeSpan.Seconds > 0 ? value : now;
+            _dateOfBirth = timeSpan.Seconds > 0 ? value : now;
         }
     }
 
     public long Id {
-        get => id;
-        set => id = Math.Abs(value);
+        get => _id;
+        set => _id = Math.Abs(value);
     }
 
     public string GetFirstName() {

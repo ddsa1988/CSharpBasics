@@ -1,8 +1,8 @@
 ﻿namespace UsingAPI.Models;
 
 public class Person {
-    private DateTime birthdate;
-    private string email;
+    private DateTime _birthdate;
+    private string _email;
     public string Name { get; init; }
 
     public Person() { }
@@ -20,18 +20,18 @@ public class Person {
     }
 
     public DateTime Birthdate {
-        get => birthdate;
+        get => _birthdate;
         set {
             DateTime now = DateTime.Now;
             TimeSpan elapsedSpan = now.Subtract(value);
-            birthdate = elapsedSpan.TotalSeconds > 0 ? value : now;
+            _birthdate = elapsedSpan.TotalSeconds > 0 ? value : now;
         }
     }
 
     public int Age {
         get {
             DateTime now = DateTime.Now;
-            TimeSpan elapsedSpan = now.Subtract(birthdate);
+            TimeSpan elapsedSpan = now.Subtract(_birthdate);
             double age = elapsedSpan.TotalDays / 365;
 
             return (int)age;
@@ -39,8 +39,8 @@ public class Person {
     }
 
     public string Email {
-        get => email;
-        set => email = string.IsNullOrEmpty(value) || string.IsNullOrWhiteSpace(value) ? email : value;
+        get => _email;
+        set => _email = string.IsNullOrEmpty(value) || string.IsNullOrWhiteSpace(value) ? _email : value;
     }
 
     public override int GetHashCode() {

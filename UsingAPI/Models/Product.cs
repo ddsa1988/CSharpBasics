@@ -1,13 +1,13 @@
 ﻿namespace UsingAPI.Models;
 
 public class Product {
-    private double price;
+    private double _price;
     public string Name { get; set; } = string.Empty;
 
     public double Price {
-        get => price;
+        get => _price;
         set {
-            price = value > 0 ? value : price;
+            _price = value > 0 ? value : _price;
         }
     }
 

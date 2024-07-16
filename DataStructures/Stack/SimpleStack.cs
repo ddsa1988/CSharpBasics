@@ -3,24 +3,24 @@ using System.Text;
 namespace DataStructures.Stack;
 
 public class SimpleStack<T> {
-    private T?[] stack;
-    private int size;
+    private T?[] _stack;
+    private int _size;
     public int Count { get; private set; }
 
     public SimpleStack(int size) {
         Size = size;
-        stack = new T[Size];
+        _stack = new T[Size];
     }
 
     public int Size {
-        get => size;
-        private set => size = value > 0 ? value : 0;
+        get => _size;
+        private set => _size = value > 0 ? value : 0;
     }
 
     public bool Push(T item) {
         if (IsFull()) return false;
 
-        stack[Count++] = item;
+        _stack[Count++] = item;
 
         return true;
     }
@@ -29,8 +29,8 @@ public class SimpleStack<T> {
         if (IsEmpty()) return default;
 
         int index = --Count;
-        T? item = stack[index];
-        stack[index] = default;
+        T? item = _stack[index];
+        _stack[index] = default;
 
         return item;
     }
@@ -39,7 +39,7 @@ public class SimpleStack<T> {
         if (IsEmpty()) return default;
 
         int index = Count - 1;
-        T? item = stack[index];
+        T? item = _stack[index];
 
         return item;
     }
@@ -49,7 +49,7 @@ public class SimpleStack<T> {
     public bool IsFull() => Count == Size;
 
     public void Clear() {
-        stack = new T[Size];
+        _stack = new T[Size];
         Count = 0;
     }
 
@@ -57,15 +57,15 @@ public class SimpleStack<T> {
         T?[] aux = new T[Size];
 
         for (int i = 0; i < Count; i++) {
-            aux[i] = stack[i];
+            aux[i] = _stack[i];
         }
 
         Size = newSize;
-        stack = new T[Size];
+        _stack = new T[Size];
         Count = Count > Size ? Size : Count;
 
         for (int i = 0; i < Count; i++) {
-            stack[i] = aux[i];
+            _stack[i] = aux[i];
         }
     }
 
@@ -75,10 +75,10 @@ public class SimpleStack<T> {
         StringBuilder sb = new StringBuilder("[");
 
         for (int i = 0; i < Count - 1; i++) {
-            sb.Append(stack[i] + ", ");
+            sb.Append(_stack[i] + ", ");
         }
 
-        sb.Append(stack[Count - 1] + "]");
+        sb.Append(_stack[Count - 1] + "]");
 
         return sb.ToString();
     }

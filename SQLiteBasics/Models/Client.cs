@@ -1,13 +1,13 @@
 ﻿namespace SQLiteBasics.Models;
 
 public class Client {
-    private static int id = 0;
+    private static int _id = 0;
     public string Name { get; init; } = string.Empty;
     public string Email { get; set; } = string.Empty;
     public int Id { get; }
 
     public Client() {
-        Id = ++id;
+        Id = ++_id;
     }
 
     public override int GetHashCode() {

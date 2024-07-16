@@ -1,19 +1,19 @@
 ﻿namespace Basics.Classes;
 
 public class ThisReference {
-    private readonly string str = "Test";
-    private readonly int number = 10;
-
-    private int GetNumber() {
-        return this.number;
-    }
-
-    public override string ToString() {
-        return $"String: {this.str} \nNumber: {this.GetNumber()}";
-    }
+    private readonly string _str = "Test";
+    private readonly int _number = 10;
 
     public static void UserMain() {
         ThisReference p1 = new ThisReference();
         Console.WriteLine(p1);
+    }
+
+    private int GetNumber() {
+        return this._number;
+    }
+
+    public override string ToString() {
+        return $"String: {this._str} \nNumber: {this.GetNumber()}";
     }
 }

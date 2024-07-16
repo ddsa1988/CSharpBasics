@@ -3,7 +3,7 @@ using System.Text;
 namespace DataStructures.LinkedList;
 
 public class SimpleLinkedList<T> {
-    private Node<T>? head;
+    private Node<T>? _head;
     public int Count { get; private set; }
 
     public bool IsEmpty() => Count == 0;
@@ -12,10 +12,10 @@ public class SimpleLinkedList<T> {
         Node<T> node = new Node<T>(element);
 
         if (IsEmpty()) {
-            head = node;
+            _head = node;
         }
         else {
-            Node<T>? current = head;
+            Node<T>? current = _head;
 
             while (current?.Next != null) {
                 current = current.Next;
@@ -38,8 +38,8 @@ public class SimpleLinkedList<T> {
         Node<T> node = new Node<T>(element);
 
         if (index == 0) {
-            node.Next = head;
-            head = node;
+            node.Next = _head;
+            _head = node;
         }
         else {
             Node<T>? previous = GetNodeAt(index - 1);
@@ -55,13 +55,13 @@ public class SimpleLinkedList<T> {
     }
 
     public T? GetHead() {
-        return head != null ? head.Element : default;
+        return _head != null ? _head.Element : default;
     }
 
     private Node<T>? GetNodeAt(int index) {
         if (index < 0 || index >= Count) return default;
 
-        Node<T>? current = head;
+        Node<T>? current = _head;
 
         for (int i = 0; i < index; i++) {
             current = current?.Next;
@@ -77,7 +77,7 @@ public class SimpleLinkedList<T> {
     }
 
     public int IndexOf(T element) {
-        Node<T>? current = head;
+        Node<T>? current = _head;
 
         for (int i = 0; i < Count; i++) {
             if (element != null && current != null && element.Equals(current.Element)) {
@@ -101,11 +101,11 @@ public class SimpleLinkedList<T> {
     public T? RemoveAt(int index) {
         if (index < 0 || index >= Count) return default;
 
-        Node<T>? current = head;
+        Node<T>? current = _head;
 
         switch (index) {
             case 0:
-                head = head?.Next;
+                _head = _head?.Next;
                 break;
             default: {
                 Node<T>? previous = GetNodeAt(index - 1);
@@ -127,7 +127,7 @@ public class SimpleLinkedList<T> {
 
         if (IsEmpty()) return sb.ToString();
 
-        Node<T>? current = head;
+        Node<T>? current = _head;
 
         while (current != null) {
             sb.Append(current.Element + "\n");
