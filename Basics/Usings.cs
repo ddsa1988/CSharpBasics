@@ -16,3 +16,5 @@ global using Basics.Enums;
 global using Basics.Generics;
 global using Basics.Delegates;
 global using Basics.LambdaExpression;
+global using Basics.TryCatch;
+global using Basics.Enumeration;
