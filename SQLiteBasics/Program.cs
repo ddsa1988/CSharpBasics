@@ -7,6 +7,7 @@ public class Program {
         ManageDatabase.CreateTable();
         ManageDatabase.Insert("Diego");
         ManageDatabase.Insert("Amanda");
+        ManageDatabase.Insert("Rodrigo");
 
         //Client c1 = new Client() { Name = "Diego", Email = "diego@hotmail.com" };
         //Client c2 = new Client() { Name = "Amanda", Email = "amanda@hotmail.com" };

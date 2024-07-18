@@ -15,4 +15,8 @@
     <Folder Include="Files\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Remove="Files\Clients.db" />
+  </ItemGroup>
+
 </Project>

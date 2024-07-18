@@ -46,8 +46,8 @@ public class ManageDatabase {
 
         try {
             SqliteCommand command = Connection().CreateCommand();
-            command.CommandText = "INSERT INTO user (name) VALUES ($name)";
-            command.Parameters.AddWithValue("$name", name);
+            command.CommandText = "INSERT INTO user (name) VALUES (@name)";
+            command.Parameters.AddWithValue("@name", name);
             command.ExecuteNonQuery();
 
             flag = true;
@@ -82,6 +82,27 @@ public class ManageDatabase {
                     break;
                 }
             }
+        } catch (Exception e) {
+            Console.WriteLine(e.Message);
+        } finally {
+            Connection()?.Close();
+        }
+
+        return flag;
+    }
+
+    public static bool Delete(string name) {
+        bool flag = false;
+
+        if (string.IsNullOrEmpty(name) || string.IsNullOrWhiteSpace(name)) return flag;
+
+        try {
+            SqliteCommand command = Connection().CreateCommand();
+            command.CommandText = "DELETE FROM user WHERE name = @name";
+            command.Parameters.AddWithValue("@name", name);
+            command.ExecuteNonQuery();
+
+            flag = true;
         } catch (Exception e) {
             Console.WriteLine(e.Message);
         } finally {
