@@ -19,3 +19,4 @@ global using Basics.LambdaExpression;
 global using Basics.TryCatch;
 global using Basics.Enumeration;
 global using Basics.NullableValueTypes;
+global using Basics.NullableReferenceTypes;

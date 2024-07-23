@@ -16,7 +16,7 @@ public class NullableTStruct {
             Console.WriteLine(i.HasValue);
             Console.WriteLine(i.GetValueOrDefault(-1));
 
-            if (i.HasValue) Console.WriteLine(i.Value); //Trying to retrive Value when HasValue is false throws an Invalid Operation Exception
+            if (i.HasValue) Console.WriteLine(i.Value); //Trying to retrieve Value when HasValue is false throws an Invalid Operation Exception
         }
 
         Console.WriteLine();
