@@ -20,3 +20,5 @@ global using Basics.TryCatch;
 global using Basics.Enumeration;
 global using Basics.NullableValueTypes;
 global using Basics.NullableReferenceTypes;
+global using Basics.ExtensionMethods;
+global using Basics.AnonymousTypes;
