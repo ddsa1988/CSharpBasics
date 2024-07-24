@@ -22,3 +22,4 @@ global using Basics.NullableValueTypes;
 global using Basics.NullableReferenceTypes;
 global using Basics.ExtensionMethods;
 global using Basics.AnonymousTypes;
+global using Basics.Tuples;
