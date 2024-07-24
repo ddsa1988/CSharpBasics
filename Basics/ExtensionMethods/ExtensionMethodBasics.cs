@@ -1,5 +1,12 @@
 namespace Basics.ExtensionMethods;
 
+/*
+    Extension methods allow an existing type to be extended with new methods without
+    altering the definition of the original type. An extension method is a static method
+    of a static class, where the 'this' modifier is applied to the first parameter. The type
+    of the first parameter will be the type that is extended
+ */
+
 public class ExtensionMethodBasics {
     public static void UserMain() {
         Console.WriteLine("Diego".IsCapitalized());
