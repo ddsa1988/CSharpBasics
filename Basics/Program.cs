@@ -1,9 +1,7 @@
-﻿using Basics.Iterators;
-
-namespace Basics;
+﻿namespace Basics;
 
 public class Program {
     public static void Main(string[] args) {
-        TuplesBasics.UserMain();
+        RecordsBasics.UserMain();
     }
 }
