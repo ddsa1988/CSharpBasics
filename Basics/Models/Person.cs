@@ -3,7 +3,7 @@
 namespace Basics.Models;
 
 public class Person {
-    private readonly string name;
+    private readonly string _name;
 
     public Person(string name) {
         Name = name;
@@ -22,13 +22,13 @@ public class Person {
     }
 
     public string Name {
-        get => name;
+        get => _name;
         init {
             if (string.IsNullOrEmpty(value) || string.IsNullOrWhiteSpace(value)) {
                 throw new ArgumentNullException(nameof(value));
             }
 
-            name = value;
+            _name = value;
         }
     }
 

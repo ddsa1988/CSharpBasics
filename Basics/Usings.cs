@@ -24,3 +24,4 @@ global using Basics.ExtensionMethods;
 global using Basics.AnonymousTypes;
 global using Basics.Tuples;
 global using Basics.Records;
+global using Basics.Patterns;
