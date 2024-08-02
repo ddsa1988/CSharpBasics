@@ -1,6 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace Basics.Patterns;
+﻿namespace Basics.Patterns;
 
 public class PropertyPattern {
     public static void UserMain() {

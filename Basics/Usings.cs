@@ -25,3 +25,5 @@ global using Basics.AnonymousTypes;
 global using Basics.Tuples;
 global using Basics.Records;
 global using Basics.Patterns;
+global using Basics.Attributes;
+global using Basics.OperatorOverload;
