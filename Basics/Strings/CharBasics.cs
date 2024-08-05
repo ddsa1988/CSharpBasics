@@ -1,7 +1,12 @@
 namespace Basics.Strings;
 
-public class Characters {
-    public static void Char() {
+public class CharBasics {
+    public static void UserMain() {
+        Console.WriteLine(char.IsLetterOrDigit('a'));
+        Console.WriteLine(char.IsLetterOrDigit('1'));
+    }
+
+    private static void Char() {
         const char a = 'D';
         const char b = 'a';
 
@@ -12,7 +17,7 @@ public class Characters {
         Console.WriteLine($"char = {b} => ASCII value = {d}");
     }
 
-    public static void Unicode() {
+    private static void Unicode() {
         const char copyrightSymbol = '\u00A9';
         const char omegaSymbol = '\u03A9';
         const char newLine = '\u000A';

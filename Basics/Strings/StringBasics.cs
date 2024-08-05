@@ -1,7 +1,11 @@
 namespace Basics.Strings;
 
-public class StringType {
-    public static void Basics() {
+public class StringBasics {
+    public static void UserMain() {
+        Comparison();
+    }
+
+    private static void Basics() {
         const string myName = "Diego dos Santos Alexandre";
         char pathSepChar = Path.DirectorySeparatorChar;
 
@@ -15,7 +19,7 @@ public class StringType {
         Console.WriteLine("Replace the 'e' for 'E' in my name: " + myName.Replace('e', 'E'));
     }
 
-    public static void Verbatim() {
+    private static void Verbatim() {
         const string a = "\\\\server\\file-share\\hello-world.cs"; //With escape sequence
         const string b = @"\\server\file-share\hello-world.cs"; //With verbatim string
         const string c = @"<customer id=""123""></customer>";
@@ -27,7 +31,7 @@ public class StringType {
         Console.WriteLine("String c = " + c);
     }
 
-    public static void Concatenation() {
+    private static void Concatenation() {
         const string a = "Diego" + " Alexandre";
         string b = "10" + 5; //Uses the ToString method to convert a non-string value
 
@@ -35,19 +39,23 @@ public class StringType {
         Console.WriteLine("string \"10\" + int 5 = " + b);
     }
 
-    public static void Comparison() {
+    private static void Comparison() {
         const string a = "Test";
         const string b = "test";
         const string c = "test";
+
+        Console.WriteLine($"{a}.Equals({b}) = {a.Equals(b)}");
+        Console.WriteLine($"{b}.Equals({c}) = {b.Equals(c)}");
+        Console.WriteLine();
 
         Console.WriteLine($"{a} == {b} = {a == b}");
         Console.WriteLine($"{b} == {c} = {b == c}");
         Console.WriteLine();
 
         const string text = @"string.Compare(strA, strB, ignoreCase) or string.CompareOrdinal(strA, strB): 
-Less than zero => strA is less than strB
-Greater than zero => strA is greater than strB
-Zero => strA and strB are equal";
+        Less than zero => strA is less than strB
+        Greater than zero => strA is greater than strB
+        Zero => strA and strB are equal";
 
         Console.WriteLine($"{text}\n");
 
@@ -58,7 +66,7 @@ Zero => strA and strB are equal";
         Console.WriteLine($"string.Compare({b}, {c}) = {string.CompareOrdinal(b, c)}");
     }
 
-    public static void SortArrayOfStrings() {
+    private static void SortArrayOfStrings() {
         string[] names = ["Rodrigo", "Diego", "Mirelle", "Ivanice", "Zeus", "Amanda", "Tainara"];
         int outerLoopSize = names.Length - 1;
 
