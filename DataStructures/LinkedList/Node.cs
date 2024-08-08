@@ -14,11 +14,10 @@ public class Node<T> {
     }
 
     public override bool Equals(object? obj) {
-        if (obj is not Node<T>) return false;
+        if (obj == null || Element == null) return false;
+        if (this.GetType() != obj.GetType()) return false;
 
-        Node<T>? other = obj as Node<T>;
-
-        if (Element == null || other == null) return false;
+        Node<T> other = (Node<T>)obj;
 
         return Element.Equals(other.Element);
     }
