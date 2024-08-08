@@ -15,7 +15,8 @@ public class Node<T> {
 
     public override bool Equals(object? obj) {
         if (obj == null || Element == null) return false;
-        if (this.GetType() != obj.GetType()) return false;
+
+        if (!typeof(Node<T>).IsInstanceOfType(obj)) return false;
 
         Node<T> other = (Node<T>)obj;
 

@@ -12,6 +12,6 @@ public class Program {
     public static void Main(string[] args) {
         // Console.WriteLine("Hello World!!!"); => Static class organized under the System namespace.
 
-        ManipulatingStrings.UserMain();
+        StringFormat.UserMain();
     }
 }

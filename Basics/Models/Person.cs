@@ -14,11 +14,13 @@ public class Person {
     }
 
     public override bool Equals(object? obj) {
-        if (obj is not Person) return false;
+        if (obj == null) return false;
 
-        Person? other = obj as Person;
+        if (!typeof(Person).IsInstanceOfType(obj)) return false;
 
-        return Name.Equals(other?.Name);
+        Person other = (Person)obj;
+
+        return Name.Equals(other.Name);
     }
 
     public string Name {
