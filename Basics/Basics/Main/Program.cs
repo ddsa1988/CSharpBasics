@@ -1,9 +1,9 @@
 ﻿namespace Basics.Main;
 
-using Expressions;
+using Loops;
 
 public class Program {
     public static void Main(string[] args) {
-        Exercise007.UserMain();
+        Exercise005.UserMain();
     }
 }
