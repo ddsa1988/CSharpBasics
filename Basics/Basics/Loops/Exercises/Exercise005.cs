@@ -1,7 +1,6 @@
-using System.Numerics;
 using System.Text;
 
-namespace Basics.Loops;
+namespace Basics.Loops.Exercises;
 
 public class Exercise005 {
     // Write a program that converts a given number from decimal to binary notation (numeral system).
@@ -23,10 +22,10 @@ public class Exercise005 {
             break;
         }
 
-        StringBuilder sb = new StringBuilder();
+        var sb = new StringBuilder();
 
         double auxNumber = number;
-        bool flag = true;
+        bool flag = false;
 
         for (int i = 0; i <= numberBits; i++) {
             double bitValue = Math.Pow(2, numberBits - i);
@@ -34,8 +33,9 @@ public class Exercise005 {
             if (auxNumber - bitValue >= 0) {
                 auxNumber -= bitValue;
                 sb.Append('1');
-                flag = false;
-            } else if (!flag) {
+                flag = true;
+            }
+            else if (flag) {
                 sb.Append('0');
             }
         }

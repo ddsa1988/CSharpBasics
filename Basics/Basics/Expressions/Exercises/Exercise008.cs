@@ -1,6 +1,6 @@
 ﻿using System.Threading.Channels;
 
-namespace Basics.Expressions;
+namespace Basics.Expressions.Exercises;
 
 public class Exercise008 {
     // Write a program that checks if a given number n (1 < n < 100) is a prime number

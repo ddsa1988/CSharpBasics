@@ -1,4 +1,4 @@
-namespace Basics.Loops;
+namespace Basics.Loops.Exercises;
 
 public class Exercise002 {
     // Write a program that reads from the console number N and print the sum

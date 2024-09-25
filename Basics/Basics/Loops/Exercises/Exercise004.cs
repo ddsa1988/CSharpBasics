@@ -1,4 +1,4 @@
-namespace Basics.Loops;
+namespace Basics.Loops.Exercises;
 
 public class Exercise004 {
     // Write a program that calculates with how many zeroes the factorial of a given number ends. Examples:

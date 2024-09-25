@@ -1,4 +1,4 @@
-namespace Basics.Expressions;
+namespace Basics.Expressions.Exercises;
 
 public class Exercise002 {
     // Write a Boolean expression that checks whether a given integer is divisible by both 5 and 7, without a remainder.

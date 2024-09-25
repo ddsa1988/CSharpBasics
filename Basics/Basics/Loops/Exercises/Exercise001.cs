@@ -1,4 +1,4 @@
-namespace Basics.Loops;
+namespace Basics.Loops.Exercises;
 
 public class Exercise001 {
     // Write a program that prints all possible cards from a standard deck

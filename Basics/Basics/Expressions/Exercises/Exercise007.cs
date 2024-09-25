@@ -1,4 +1,4 @@
-﻿namespace Basics.Expressions;
+﻿namespace Basics.Expressions.Exercises;
 
 public class Exercise007 {
     /*

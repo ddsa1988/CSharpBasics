@@ -1,4 +1,4 @@
-namespace Basics.Loops;
+namespace Basics.Loops.Exercises;
 
 public class Exercise003 {
     // Write a program that reads from the console a positive integer number
