@@ -1,9 +1,9 @@
 ﻿namespace Basics.Main;
 
-using Arrays.Examples;
+using Arrays.Exercises;
 
 public class Program {
     public static void Main(string[] args) {
-        Example006.UserMain();
+        Exercise002.UserMain();
     }
 }

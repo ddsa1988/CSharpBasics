@@ -8,9 +8,9 @@ public class Example006 {
         jaggedArray[1] = new int[3];
 
         int[][] arrays = [
-            new int[] { 1, 2, 3, 4, 5 },
-            new int[] { 6, 7, 8, 9 },
-            new int[] { 10, 11, 12 }
+            [1, 2, 3, 4, 5],
+            [6, 7, 8, 9],
+            [10, 11, 12]
         ];
 
         Console.WriteLine(arrays.Length);
