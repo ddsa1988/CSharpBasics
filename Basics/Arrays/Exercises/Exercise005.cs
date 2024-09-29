@@ -1,11 +1,10 @@
-namespace Basics.Arrays.Exercises;
+﻿namespace Basics.Arrays.Exercises;
 
-public class Exercise004 {
-    // Write a program, which finds the maximal sequence of consecutive equal elements in an array.
-    // E.g.: {1, 1, 2, 3, 2, 2, 2, 1} => {2, 2, 2}.
+public class Exercise005 {
+    // Write a program, which finds the maximal sequence of consecutively placed increasing integers. Example: {3, 2, 3, 4, 2, 2, 4} => {2, 3, 4}.
 
     public static void UserMain() {
-        int[] source = [1, 1, 1, 2, 3, 3, 2, 2, 2, 2, 1];
+        int[] source = [3, 2, 3, 4, 2, 3, 4, 1, 2];
 
         int auxStart = 0;
         int auxLength = 1;
@@ -17,15 +16,16 @@ public class Exercise004 {
             int actual = source[i];
             int next = source[i + 1];
 
-            if (actual == next) {
+            if (next > actual) {
                 if (auxLength == 1) auxStart = i;
                 auxLength += 1;
 
-                if (auxLength > bestLength) {
-                    bestStart = auxStart;
-                    bestLength = auxLength;
-                }
-            } else {
+                if (auxLength <= bestLength) continue;
+                
+                bestStart = auxStart;
+                bestLength = auxLength;
+            }
+            else {
                 auxStart = 0;
                 auxLength = 1;
             }
@@ -37,7 +37,7 @@ public class Exercise004 {
 
         Console.WriteLine($"Source array: [{string.Join(", ", source)}]\n");
 
-        Console.Write($"The maximal sequence of consecutive equal elements: [{string.Join(", ", sequence)}]\n");
-
+        Console.Write(
+            $"The maximal sequence of consecutively placed increasing elements: [{string.Join(", ", sequence)}]\n");
     }
 }
