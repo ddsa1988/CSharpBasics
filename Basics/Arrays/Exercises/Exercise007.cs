@@ -5,30 +5,41 @@ public class Exercise007 {
     // Find those K consecutive elements in the array, which have maximal sum.
 
     public static void UserMain() {
-        const int n = 10;
         const int k = 3;
 
-        int auxSum = 0;
-        int bestSum = 0;
-        int counter = 0;
+        int[] source = [3, 2, 3, 4, 2, 3, 1, 1, 2];
 
-        int[] source = [7, 8, 1, 2, 6, 9, 5, 4, 3, 0];
+        int auxStart = 0;
+        int auxLength = 1;
+        int bestStart = 0;
+        int bestLength = 1;
+        int arrayLength = source.Length;
 
-        Array.Sort(source);
+        for (int i = 0; i < arrayLength - 1; i++) {
+            int actual = source[i];
+            int next = source[i + 1];
 
-        for (int i = 0; i < n; i++) {
-            auxSum += source[i];
-            counter++;
+            if (next > actual) {
+                if (auxLength == 1) auxStart = i;
+                auxLength += 1;
 
-            if (counter < k) continue;
+                if (auxLength <= bestLength) continue;
 
-            counter = 0;
-
-            if (auxSum < bestSum) continue;
-
-            bestSum = auxSum;
+                bestStart = auxStart;
+                bestLength = auxLength;
+            } else {
+                auxStart = 0;
+                auxLength = 1;
+            }
         }
 
-        Console.WriteLine(bestSum);
+        int[] sequence = new int[bestLength];
+
+        Array.Copy(source, bestStart, sequence, 0, bestLength);
+
+        Console.WriteLine($"Source array: [{string.Join(", ", source)}]\n");
+
+        Console.Write(
+            $"The maximal sequence of consecutively placed increasing elements: [{string.Join(", ", sequence)}]\n");
     }
 }
