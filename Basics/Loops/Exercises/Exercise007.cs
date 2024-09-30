@@ -2,6 +2,7 @@ namespace Basics.Loops.Exercises;
 
 public class Exercise007 {
     // Write a program that by a given integer N prints the numbers from 1 to N in random order.
+
     public static void UserMain() {
         const int minValue = 0;
         const int maxValue = 20;

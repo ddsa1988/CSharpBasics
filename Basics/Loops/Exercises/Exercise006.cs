@@ -4,6 +4,7 @@ namespace Basics.Loops.Exercises;
 
 public partial class Exercise006 {
     // Write a program that converts a given number from binary to decimal notation.
+
     public static void UserMain() {
         string binary;
 

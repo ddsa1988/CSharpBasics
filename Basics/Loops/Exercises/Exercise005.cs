@@ -4,6 +4,7 @@ namespace Basics.Loops.Exercises;
 
 public class Exercise005 {
     // Write a program that converts a given number from decimal to binary notation (numeral system).
+
     public static void UserMain() {
         const int minValue = 0;
         const int maxValue = int.MaxValue;
@@ -34,8 +35,7 @@ public class Exercise005 {
                 auxNumber -= bitValue;
                 sb.Append('1');
                 flag = true;
-            }
-            else if (flag) {
+            } else if (flag) {
                 sb.Append('0');
             }
         }

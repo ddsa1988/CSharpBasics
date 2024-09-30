@@ -5,6 +5,7 @@ namespace Basics.Expressions.Exercises;
 public class Exercise008 {
     // Write a program that checks if a given number n (1 < n < 100) is a prime number
     // (i.e. it is divisible without remainder only to itself and 1). 
+
     public static void UserMain() {
         const int minValue = 2;
         const int maxValue = 100;

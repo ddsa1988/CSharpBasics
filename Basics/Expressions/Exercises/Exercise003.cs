@@ -2,6 +2,7 @@ namespace Basics.Expressions.Exercises;
 
 public class Exercise003 {
     // Write an expression that looks for a given integer if its third digit (right to left) is 7.
+
     public static void UserMain() {
         const int matchNumber = 7;
         int number;

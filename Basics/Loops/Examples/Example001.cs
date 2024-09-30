@@ -1,6 +1,4 @@
-﻿using System.Reflection.Metadata.Ecma335;
-
-namespace Basics.Loops.Examples;
+﻿namespace Basics.Loops.Examples;
 
 public class Example001 {
     public static void UserMain() {

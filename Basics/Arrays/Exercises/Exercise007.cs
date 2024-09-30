@@ -3,43 +3,45 @@ namespace Basics.Arrays.Exercises;
 public class Exercise007 {
     // Write a program, which reads from the console two integer numbers N and K (K<N) and array of N integers.
     // Find those K consecutive elements in the array, which have maximal sum.
+    // Example: {10, 12, 9, 8, 10, 15, 1, 3, 2}, K = 3 => {9, 8, 10} = 27 
+    // Example: {7, 20, 2, 3, 4}, K = 2 => {3,4} = 7
 
     public static void UserMain() {
-        const int k = 3;
+        int[] source = [10, 12, 9, 8, 10, 15, 1, 3, 2];
+        int n = source.Length;
+        int k = 3;
+        int bestSum = 0;
 
-        int[] source = [3, 2, 3, 4, 2, 3, 1, 1, 2];
+        for (int i = 0; i <= n - k; i++) {
+            int[] tempArray = new int[k];
 
-        int auxStart = 0;
-        int auxLength = 1;
-        int bestStart = 0;
-        int bestLength = 1;
-        int arrayLength = source.Length;
+            Array.Copy(source, i, tempArray, 0, k);
+            Array.Sort(tempArray);
 
-        for (int i = 0; i < arrayLength - 1; i++) {
-            int actual = source[i];
-            int next = source[i + 1];
+            bool flag = true;
 
-            if (next > actual) {
-                if (auxLength == 1) auxStart = i;
-                auxLength += 1;
+            for (int j = 0; j < k - 1; j++) {
+                int actual = tempArray[j];
+                int next = tempArray[j + 1];
 
-                if (auxLength <= bestLength) continue;
+                if (next - actual == 1) continue;
 
-                bestStart = auxStart;
-                bestLength = auxLength;
-            } else {
-                auxStart = 0;
-                auxLength = 1;
+                flag = false;
+                break;
             }
+
+            if (!flag) continue;
+
+            int tempArrayLength = tempArray.Length;
+            int tempSum = 0;
+
+            for (int j = 0; j < tempArrayLength; j++) {
+                tempSum += tempArray[j];
+            }
+
+            bestSum = Math.Max(bestSum, tempSum); ;
         }
 
-        int[] sequence = new int[bestLength];
-
-        Array.Copy(source, bestStart, sequence, 0, bestLength);
-
-        Console.WriteLine($"Source array: [{string.Join(", ", source)}]\n");
-
-        Console.Write(
-            $"The maximal sequence of consecutively placed increasing elements: [{string.Join(", ", sequence)}]\n");
+        Console.WriteLine($"The maximal sum of {k} consecutive elements is the array [{string.Join(", ", source)}] is {bestSum}.");
     }
 }

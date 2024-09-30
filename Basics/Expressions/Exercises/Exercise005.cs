@@ -9,6 +9,7 @@ public class Exercise005 {
         - Puts the last digit in the first position: dabc (in our example 1201).
         - Exchanges the second and the third digits: acbd (in our example 2101). 
     */
+
     public static void UserMain() {
         const int inputLength = 4;
         int number;

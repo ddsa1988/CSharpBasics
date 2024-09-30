@@ -5,10 +5,11 @@ public class Exercise006 {
         We are given a number n and a position p. Write a sequence of operations that prints the  value of the bit
         on the position p in the number (0 or 1). Example: n = 35, p = 5 -> 1. Another example: n = 35, p = 6 -> 0.
     */
+
     public static void UserMain() {
         const int posMinValue = 0;
         const int posMaxValue = 31;
-        
+
         int number, position;
 
         while (true) {

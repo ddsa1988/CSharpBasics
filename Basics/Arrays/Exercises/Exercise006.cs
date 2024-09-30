@@ -3,7 +3,7 @@
 public class Exercise006 {
     // Write a program, which finds the maximal sequence of increasing elements in an array arr[n].
     // It is not necessary the elements to be consecutively placed.
-    // E.g.: {9, 6, 2, 7, 4, 7, 6, 5, 8, 4} => {2, 4, 5, 8}.
+    // Example: {9, 6, 2, 7, 4, 7, 6, 5, 8, 4} => {2, 4, 5, 8}.
 
     public static void UserMain() {
         int[] source = [9, 6, 2, 7, 4, 7, 6, 5, 8, 4];
@@ -23,9 +23,8 @@ public class Exercise006 {
                     tempResult[tempIndex] = source[j];
                     tempIndex++;
                     tempCounter++;
-                }
-                else if (tempIndex > 1 && source[j] > tempResult[tempIndex - 2] &&
-                         source[j] < tempResult[tempIndex - 1])
+                } else if (tempIndex > 1 && source[j] > tempResult[tempIndex - 2] &&
+                           source[j] < tempResult[tempIndex - 1])
                     tempResult[tempIndex - 1] = source[j];
             }
 

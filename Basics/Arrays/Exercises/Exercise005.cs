@@ -21,11 +21,10 @@ public class Exercise005 {
                 auxLength += 1;
 
                 if (auxLength <= bestLength) continue;
-                
+
                 bestStart = auxStart;
                 bestLength = auxLength;
-            }
-            else {
+            } else {
                 auxStart = 0;
                 auxLength = 1;
             }

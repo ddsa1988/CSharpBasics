@@ -2,7 +2,7 @@ namespace Basics.Arrays.Exercises;
 
 public class Exercise004 {
     // Write a program, which finds the maximal sequence of consecutive equal elements in an array.
-    // E.g.: {1, 1, 2, 3, 2, 2, 2, 1} => {2, 2, 2}.
+    // Example: {1, 1, 2, 3, 2, 2, 2, 1} => {2, 2, 2}.
 
     public static void UserMain() {
         int[] source = [1, 1, 1, 2, 3, 3, 2, 2, 2, 2, 1];
@@ -22,7 +22,7 @@ public class Exercise004 {
                 auxLength += 1;
 
                 if (auxLength <= bestLength) continue;
-                
+
                 bestStart = auxStart;
                 bestLength = auxLength;
             } else {

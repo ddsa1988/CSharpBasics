@@ -2,6 +2,7 @@ namespace Basics.Expressions.Exercises;
 
 public class Exercise001 {
     // Write an expression that checks whether an integer is odd or even.
+
     public static void UserMain() {
         int number;
 

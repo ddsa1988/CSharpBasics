@@ -4,6 +4,7 @@ public class Exercise004 {
     // Write a program that calculates with how many zeroes the factorial of a given number ends. Examples:
     // N = 10 -> N! = 3628800 -> 2
     // N = 20 -> N! = 2432902008176640000 -> 4
+
     public static void UserMain() {
         const int minValue = 0;
         const int maxValue = 20;
