@@ -1,9 +1,9 @@
 ﻿namespace Basics;
 
-using Basics.NumericalSystem.Examples;
+using Basics.Methods.Examples;
 
 public class Program {
     public static void Main(string[] args) {
-        Example002.UserMain();
+        Example001.UserMain();
     }
 }
