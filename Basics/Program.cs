@@ -1,9 +1,9 @@
 ﻿namespace Basics;
 
-using Basics.Recursion.Examples;
+using Basics.UsingObjects.Exercises;
 
 public class Program {
     public static void Main(string[] args) {
-        Example002.UserMain();
+        Exercise003.UserMain();
     }
 }
