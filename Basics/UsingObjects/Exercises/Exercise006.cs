@@ -21,9 +21,9 @@ public class Exercise006 {
     private static double TriangleAreaTwoSides(double a, double b, double degrees) {
         if (a < 0 || b < 0 || degrees < 0) throw new ArgumentException("Parameters must be positive.");
 
-        double angle = Math.PI * degrees / 180;
+        double radians = Math.PI * degrees / 180;
 
-        double area = 1 / 2f * a * b * Math.Sin(angle);
+        double area = 1 / 2f * a * b * Math.Sin(radians);
         return area;
     }
 
