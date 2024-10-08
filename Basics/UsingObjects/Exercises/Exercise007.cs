@@ -1,7 +1,6 @@
 namespace Basics.UsingObjects.Exercises;
 
 using Basics.UsingObjects.Models;
-using System.Reflection;
 
 public class Exercise007 {
     // Define your own namespace CreatingAndUsingObjects and place in it two classes Cat and Sequence, which we used in the examples of the
