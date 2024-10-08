@@ -4,6 +4,6 @@ using Basics.UsingObjects.Exercises;
 
 public class Program {
     public static void Main(string[] args) {
-        Exercise006.UserMain();
+        Exercise007.UserMain();
     }
 }
