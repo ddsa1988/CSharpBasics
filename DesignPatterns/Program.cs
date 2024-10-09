@@ -1,6 +1,6 @@
 ﻿namespace DesignPatterns;
 
-using DesignPatterns.Abstraction;
+using DesignPatterns.Inheritance;
 
 public class Program {
     public static void Main(string[] args) {

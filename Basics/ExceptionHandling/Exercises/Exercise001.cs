@@ -8,17 +8,17 @@ public class Exercise001 {
         string? userInput = Console.ReadLine();
 
         try {
-            int number = int.Parse(userInput);
+            bool isNumberValid = int.TryParse(userInput, out int number);
 
-            if (number < 0) {
-                throw new Exception("NegativeNumberException");
+            if (!isNumberValid || number < 0) {
+                throw new Exception("Invalid Number");
             }
 
             double sqrt = Math.Sqrt(number);
 
             Console.WriteLine($"The square root of {number} is {sqrt:F2}.");
-        } catch (Exception) {
-            Console.WriteLine("Invalid number.");
+        } catch (Exception e) {
+            Console.WriteLine(e.Message);
         } finally {
             Console.WriteLine("Good bye.");
         }
