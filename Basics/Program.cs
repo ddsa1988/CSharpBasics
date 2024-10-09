@@ -1,9 +1,9 @@
 ﻿namespace Basics;
 
-using Basics.UsingObjects.Exercises;
+using Basics.ExceptionHandling.Exercises;
 
 public class Program {
     public static void Main(string[] args) {
-        Exercise011.UserMain();
+        Exercise002.UserMain();
     }
 }
