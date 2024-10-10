@@ -1,4 +1,4 @@
-namespace DesignPatterns.Inheritance;
+namespace DesignPatterns.Inheritance.Models;
 
 public class Vehicle {
     public string Brand { get; set; } = "";

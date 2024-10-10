@@ -1,6 +1,6 @@
 ﻿namespace DesignPatterns;
 
-using DesignPatterns.Inheritance;
+using DesignPatterns.Polymorphism;
 
 public class Program {
     public static void Main(string[] args) {

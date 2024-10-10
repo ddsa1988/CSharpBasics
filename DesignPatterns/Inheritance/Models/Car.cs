@@ -1,4 +1,4 @@
-namespace DesignPatterns.Inheritance;
+namespace DesignPatterns.Inheritance.Models;
 
 public class Car : Vehicle {
     public int NumberOfDoors { get; set; }

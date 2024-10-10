@@ -1,5 +1,7 @@
 namespace DesignPatterns.Inheritance;
 
+using DesignPatterns.Inheritance.Models;
+
 public class Example001 {
     // Inheritance involver creating new classes based on existing classes.
     // Subclasses inherit properties and behaviors from their superclass.
