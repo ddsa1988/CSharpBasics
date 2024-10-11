@@ -1,9 +1,9 @@
 ﻿namespace Basics;
 
-using Basics.Strings.Examples;
+using Basics.Strings.Exercises;
 
 public class Program {
     public static void Main(string[] args) {
-        Example004.UserMain();
+        Exercise003.UserMain();
     }
 }

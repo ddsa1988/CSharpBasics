@@ -1,6 +1,6 @@
 ﻿namespace DesignPatterns;
 
-using DesignPatterns.Polymorphism;
+using DesignPatterns.Coupling;
 
 public class Program {
     public static void Main(string[] args) {

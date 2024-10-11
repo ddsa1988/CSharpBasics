@@ -12,8 +12,13 @@ public class Example004 {
     }
 
     private static List<int> FindAllOccurrences(string source, string search) {
-        if (string.IsNullOrEmpty(source) || string.IsNullOrWhiteSpace(source)) throw new ArgumentException("String is empty", nameof(source));
-        if (string.IsNullOrEmpty(search) || string.IsNullOrWhiteSpace(search)) throw new ArgumentException("String is empty", nameof(search));
+        if (string.IsNullOrEmpty(source) || string.IsNullOrWhiteSpace(source)) {
+            throw new ArgumentException("String is empty", nameof(source));
+        }
+
+        if (string.IsNullOrEmpty(search) || string.IsNullOrWhiteSpace(search)) {
+            throw new ArgumentException("String is empty", nameof(search));
+        }
 
         List<int> indexes = new List<int>();
         int index = -1;
