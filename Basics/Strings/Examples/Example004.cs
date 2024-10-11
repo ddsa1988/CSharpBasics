@@ -21,14 +21,13 @@ public class Example004 {
         }
 
         List<int> indexes = new List<int>();
-        int index = -1;
 
-        do {
+        int index = source.IndexOf(search, 0);
+
+        while (index != -1) {
+            indexes.Add(index);
             index = source.IndexOf(search, index + 1);
-
-            if (index != -1) indexes.Add(index);
-
-        } while (index != -1);
+        }
 
         return indexes;
     }
