@@ -24,11 +24,11 @@ public class Exercise004 {
 
     private static int CountOccurrences(string text, string substring) {
         if (string.IsNullOrEmpty(text) || string.IsNullOrWhiteSpace(text)) {
-            throw new ArgumentException("String is empty", nameof(text));
+            throw new ArgumentException("Value is empty", nameof(text));
         }
 
         if (string.IsNullOrEmpty(substring) || string.IsNullOrWhiteSpace(substring)) {
-            throw new ArgumentException("String is empty", nameof(substring));
+            throw new ArgumentException("Value is empty", nameof(substring));
         }
 
         string auxText = text.ToLower().Trim();

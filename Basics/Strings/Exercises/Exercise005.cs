@@ -22,7 +22,7 @@ public class Exercise005 {
 
     private static string ModifyTextCasing(string text) {
         if (string.IsNullOrEmpty(text) || string.IsNullOrWhiteSpace(text)) {
-            throw new ArgumentException("String is empty", nameof(text));
+            throw new ArgumentException("Value is empty", nameof(text));
         }
 
         StringBuilder sb = new StringBuilder();
