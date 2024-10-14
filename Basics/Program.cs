@@ -4,6 +4,6 @@ using Basics.Strings.Exercises;
 
 public class Program {
     public static void Main(string[] args) {
-        Exercise009.UserMain();
+        Exercise012.UserMain();
     }
 }
