@@ -1,3 +1,4 @@
+using System.Globalization;
 using System.Text.RegularExpressions;
 
 namespace Basics.Strings.Exercises;
@@ -5,23 +6,38 @@ public partial class Exercise014 {
     // Write a program that reads two dates entered in the format "day.month.year" and calculates the number of days between them.
     // Enter the first date: 27.02.2006 Enter the second date: 3.03.2006. Distance: 4 days
     public static void UserMain() {
-        string sample1 = "27.03.2006";
+        const string dateFormat = "d.M.yyyy";
+
+        string sample1 = "27.02.2006";
         string sample2 = "3.03.2006";
 
-        Console.WriteLine(IsDateValid(sample1));
-        Console.WriteLine(IsDateValid(sample2));
+        DateTime start = GetDateFromString(sample1, dateFormat);
+        DateTime end = GetDateFromString(sample2, dateFormat);
+
+        int days = GetNumberOfDays(start, end);
+
+        Console.WriteLine($"The difference between {start.ToShortDateString()} and {end.ToShortDateString()} is {days} days.");
     }
 
-    private static string[] GetDateArray(string text) {
-        return new string[1];
+    private static int GetNumberOfDays(DateTime start, DateTime end) {
+        int days = end.Subtract(start).Days;
+
+        return days > 0 ? days : 0;
     }
 
-    private static bool IsDateValid(string text) {
-        Regex regex = MyRegex();
+    private static DateTime GetDateFromString(string text, string dateFormat) {
+        if (!IsDateValid(text, dateFormat)) {
+            throw new ArgumentException($"Parameter is not a valid date", nameof(text));
+        }
 
-        return regex.IsMatch(text);
+        DateTime date = DateTime.ParseExact(text, dateFormat, CultureInfo.InvariantCulture);
+
+        return date;
     }
 
-    [GeneratedRegex(@"^(0[1-9])|([1-2][0-9])|(3[0-1])\.(0[1-9])|(1[0-2])\.[0-9]{4}")]
-    private static partial Regex MyRegex();
+    private static bool IsDateValid(string text, string dateFormat) {
+        bool isDateValid = DateTime.TryParseExact(text, dateFormat, CultureInfo.InvariantCulture, DateTimeStyles.None, out _);
+
+        return isDateValid;
+    }
 }
