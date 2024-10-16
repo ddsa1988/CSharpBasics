@@ -1,5 +1,4 @@
 using System.Globalization;
-using System.Text.RegularExpressions;
 
 namespace Basics.Strings.Exercises;
 public partial class Exercise014 {
