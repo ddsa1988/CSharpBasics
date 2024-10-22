@@ -1,9 +1,9 @@
-﻿using Basics.Generics.Examples;
+﻿using Basics.Classes.Exercises;
 
 namespace Basics;
 
 public class Program {
     public static void Main(string[] args) {
-        Example001.UserMain();
+        Exercise001.UserMain();
     }
 }
