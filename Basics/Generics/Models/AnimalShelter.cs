@@ -2,7 +2,7 @@ namespace Basics.Generics.Models;
 
 public class AnimalShelter<T> {
     private const int DefaultPlacesCount = 20;
-    private T[] animalList;
+    private readonly T?[] animalList;
     private int usedPlaces;
 
     public AnimalShelter() : this(DefaultPlacesCount) { }
@@ -20,19 +20,18 @@ public class AnimalShelter<T> {
         animalList[usedPlaces++] = newAnimal;
     }
 
-    public T Release(int index) {
+    public T? Release(int index) {
         if (index < 0 || index >= usedPlaces) {
             throw new ArgumentOutOfRangeException(nameof(index), $"Invalid cell index: {index}.");
         }
 
-        T releasedAnimal = animalList[index];
+        T? releasedAnimal = animalList[index];
 
         for (int i = index; i < usedPlaces - 1; i++) {
             animalList[i] = animalList[i + 1];
         }
 
         animalList[--usedPlaces] = default(T);
-
 
         return releasedAnimal;
     }
