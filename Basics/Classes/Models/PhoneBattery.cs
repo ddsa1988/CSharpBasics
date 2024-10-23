@@ -1,7 +1,10 @@
+using Basics.Classes.Enums;
+
 namespace Basics.Classes.Models;
 
 public class PhoneBattery {
     public string Model { get; set; }
+    public BatteryType BatteryType { get; set; }
     public TimeSpan IdleTime { get; private set; }
     public TimeSpan HoursTalk { get; private set; }
 
@@ -11,9 +14,10 @@ public class PhoneBattery {
         Model = mode;
     }
 
-    public PhoneBattery(string model, double idleTime, double hoursTalk) : this(model) {
+    public PhoneBattery(string model, double idleTime, double hoursTalk, BatteryType batteryType) : this(model) {
         SetIdleTime(idleTime);
         SetHoursTalk(hoursTalk);
+        BatteryType = batteryType;
     }
 
     public void SetIdleTime(double minutes) {
