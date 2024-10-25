@@ -4,7 +4,7 @@ public class Example003 {
     public static void UserMain() {
         char sepChar = Path.DirectorySeparatorChar;
         string filePath = $"..{sepChar}..{sepChar}..{sepChar}TextFiles{sepChar}Files{sepChar}Example003.txt";
-        string word = "C#";
+        const string word = "C#";
 
         CountWordOccurrences(filePath, word);
     }
@@ -15,9 +15,9 @@ public class Example003 {
         int occurrences = 0;
 
         try {
-            using StreamReader reader = new StreamReader(filePath);
+            using var reader = new StreamReader(filePath);
             string? line = reader.ReadLine();
-            StringComparison stringComparison = StringComparison.InvariantCultureIgnoreCase;
+            const StringComparison stringComparison = StringComparison.InvariantCultureIgnoreCase;
 
             while (line != null) {
                 int index = line.IndexOf(word, stringComparison);

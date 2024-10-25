@@ -2,7 +2,7 @@ namespace Basics.ExceptionHandling.Examples;
 
 public class Example001 {
     public static void UserMain() {
-        string fileName = "WrongTextFile.txt";
+        const string fileName = "WrongTextFile.txt";
 
         ReadTextFile(fileName);
     }

@@ -12,7 +12,7 @@ public class Example001 {
         if (!File.Exists(filePath)) return;
 
         try {
-            using StreamReader reader = new StreamReader(filePath);
+            using var reader = new StreamReader(filePath);
 
             int lineNumber = 0;
 

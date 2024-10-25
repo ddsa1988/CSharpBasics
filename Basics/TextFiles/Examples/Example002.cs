@@ -14,7 +14,7 @@ public class Example002 {
         try {
             File.Create(filePath).Close();
 
-            using StreamWriter writer = new StreamWriter(filePath);
+            using var writer = new StreamWriter(filePath);
 
             for (int i = 0; i < 20; i++) {
                 writer.Write(i + " ");

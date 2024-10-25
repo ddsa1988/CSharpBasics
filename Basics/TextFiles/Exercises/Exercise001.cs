@@ -13,7 +13,7 @@ public class Exercise001 {
         if (!File.Exists(filePath)) return;
 
         try {
-            using StreamReader reader = new StreamReader(filePath);
+            using var reader = new StreamReader(filePath);
             int countLines = 0;
 
             while (!reader.EndOfStream) {
@@ -30,7 +30,7 @@ public class Exercise001 {
             }
 
         } catch (IOException) {
-            Console.Error.WriteLine("Cannot read the file '{0}'.", filePath);
+            Console.Error.WriteLine("Can't read the file '{0}'.", filePath);
         } catch (Exception e) {
             Console.Error.WriteLine(e.Message);
         }
