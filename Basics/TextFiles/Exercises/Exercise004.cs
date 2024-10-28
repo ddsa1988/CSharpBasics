@@ -14,6 +14,9 @@ public class Exercise004 {
     private static void PrintEqualLines(string filePath1, string filePath2) {
         if (!File.Exists(filePath1) || !File.Exists(filePath2)) return;
 
+        int countEquals = 0;
+        int countDifferent = 0;
+
         try {
             using var reader1 = new StreamReader(filePath1);
             using var reader2 = new StreamReader(filePath2);
@@ -22,8 +25,11 @@ public class Exercise004 {
                 string? line1 = reader1.ReadLine();
                 string? line2 = reader2.ReadLine();
 
-                Console.WriteLine($"Line 1 = {line1}");
-                Console.WriteLine($"Line 2 = {line2}");
+                if (line1 != null && line2 !=null && line1.Equals(line2)) {
+                    countEquals++;
+                } else {
+                    countDifferent++;
+                }
             }
 
         } catch (IOException) {
@@ -31,5 +37,7 @@ public class Exercise004 {
         } catch (Exception e) {
             Console.Error.WriteLine(e.ToString());
         }
+        
+        Console.WriteLine($"Equal lines: {countEquals}.\nDifferent lines: {countDifferent}.");
     }
 }
