@@ -2,30 +2,31 @@
 
 namespace Basics.TextFiles.Exercises;
 
-public class Exercise006 {
-    // Write a program that reads a list of names from a text file, arranges them in alphabetical order, and writes them to another file.
-    // The lines are written one per row.
+public class Exercise007 {
+    // Write a program that replaces every occurrence of the substring "start" with "finish" in a text file.
+    // Can you rewrite the program to replace whole words only?
     public static void UserMain() {
         char sepChar = Path.DirectorySeparatorChar;
-        string sourceFilePath = $"..{sepChar}..{sepChar}..{sepChar}TextFiles{sepChar}Files{sepChar}Exercise006_File1.txt";
-        string targetFilePath = $"..{sepChar}..{sepChar}..{sepChar}TextFiles{sepChar}Files{sepChar}Exercise006_File2.txt";
+        string sourceFilePath = $"..{sepChar}..{sepChar}..{sepChar}TextFiles{sepChar}Files{sepChar}Exercise007_File1.txt";
+        string targetFilePath = $"..{sepChar}..{sepChar}..{sepChar}TextFiles{sepChar}Files{sepChar}Exercise007_File2.txt";
+
+        const string oldWord = "start";
+        const string newWord = "finish";
 
         string content = ReadFile(sourceFilePath);
-        string sortedContent = SortContent(content);
+        string replacedContent = ReplaceWord(content, oldWord, newWord);
 
-        WriteFile(targetFilePath, sortedContent);
+        WriteFile(targetFilePath, replacedContent);
     }
 
-    private static string SortContent(string content) {
-        if (string.IsNullOrEmpty(content) || string.IsNullOrWhiteSpace(content)) return content;
+    private static string ReplaceWord(string content, string oldWord, string newWord) {
+        if (string.IsNullOrEmpty(content) || string.IsNullOrWhiteSpace(content)) {
+            throw new ArgumentException("Parameter is empty or null.", nameof(content));
+        }
 
-        string[] lines = content.Split('\n', StringSplitOptions.RemoveEmptyEntries);
+        string replacedContent = content.Replace(oldWord, newWord, StringComparison.InvariantCultureIgnoreCase);
 
-        Array.Sort(lines, StringComparer.OrdinalIgnoreCase);
-
-        string sortedContent = string.Join("\n", lines);
-
-        return sortedContent;
+        return replacedContent;
     }
 
     private static void WriteFile(string filePath, string content) {
@@ -34,7 +35,7 @@ public class Exercise006 {
         if (File.Exists(filePath)) File.Delete(filePath);
 
         try {
-            using StreamWriter writer = File.AppendText(filePath);
+            StreamWriter writer = File.AppendText(filePath);
 
             string[] lines = content.Split('\n', StringSplitOptions.RemoveEmptyEntries);
 
@@ -45,7 +46,7 @@ public class Exercise006 {
         } catch (IOException) {
             Console.Error.WriteLine($"Can't write file '{filePath}'.");
         } catch (Exception e) {
-            Console.Error.WriteLine(e.ToString());
+            Console.Error.WriteLine(e.Message);
         }
     }
 
@@ -59,8 +60,6 @@ public class Exercise006 {
 
             while (!reader.EndOfStream) {
                 string? line = reader.ReadLine();
-
-                if (string.IsNullOrEmpty(line) || string.IsNullOrWhiteSpace(line)) continue;
 
                 sb.Append(line + '\n');
             }
