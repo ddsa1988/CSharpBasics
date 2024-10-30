@@ -14,8 +14,8 @@ public class Exercise009 {
 
         string content = ReadFile(sourceFilePath);
         string replaceContent = DeleteOddLines(content);
-        
-        Console.WriteLine(replaceContent);
+
+        WriteFile(targetFilePath, replaceContent);
     }
 
     private static string DeleteOddLines(string content) {
@@ -28,11 +28,11 @@ public class Exercise009 {
         foreach (string line in lines) {
             countLines++;
 
-            bool isOdd = countLines % 2 != 0;
+            bool isEven = countLines % 2 == 0;
 
-            if (!isOdd) continue;
+            if (isEven) continue;
 
-            sb.AppendLine(line);
+            sb.Append(line + '\n');
         }
 
         return sb.ToString();

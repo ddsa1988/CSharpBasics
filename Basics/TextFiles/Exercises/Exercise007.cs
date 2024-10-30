@@ -1,4 +1,5 @@
 ﻿using System.Text;
+using System.Text.RegularExpressions;
 
 namespace Basics.TextFiles.Exercises;
 
@@ -23,7 +24,9 @@ public class Exercise007 {
             throw new ArgumentException("Parameter is empty or null.", nameof(content));
         }
 
-        string replacedContent = content.Replace(oldWord, newWord, StringComparison.InvariantCultureIgnoreCase);
+        string pattern = $"{oldWord}";
+
+        string replacedContent = Regex.Replace(content, pattern, newWord, RegexOptions.IgnoreCase);
 
         return replacedContent;
     }

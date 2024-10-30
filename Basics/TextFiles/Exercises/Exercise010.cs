@@ -1,36 +1,31 @@
-using System.Text;
-using System.Text.RegularExpressions;
+﻿using System.Text;
 
 namespace Basics.TextFiles.Exercises;
 
-public class Exercise008 {
-    // Write a program that replaces only whole words of the substring "start" with "finish" in a text file.
+public class Exercise010 {
+    // Write a program that extracts from an XML file the text only (without the tags).
     public static void UserMain() {
         char sepChar = Path.DirectorySeparatorChar;
-        string sourceFilePath =
-            $"..{sepChar}..{sepChar}..{sepChar}TextFiles{sepChar}Files{sepChar}Exercise008_File1.txt";
-        string targetFilePath =
-            $"..{sepChar}..{sepChar}..{sepChar}TextFiles{sepChar}Files{sepChar}Exercise008_File2.txt";
-
-        const string oldWord = "start";
-        const string newWord = "finish";
+        string sourceFilePath = $"..{sepChar}..{sepChar}..{sepChar}TextFiles{sepChar}Files{sepChar}Exercise010_File1.txt";
+        string targetFilePath = $"..{sepChar}..{sepChar}..{sepChar}TextFiles{sepChar}Files{sepChar}Exercise010_File2.txt";
 
         string content = ReadFile(sourceFilePath);
-        string replacedContent = ReplaceWord(content, oldWord, newWord);
+        string newContent = ExtractTextFromXml(content);
 
-        WriteFile(targetFilePath, replacedContent);
+        Console.WriteLine(content);
+        Console.WriteLine();
+        Console.WriteLine(newContent);
     }
 
-    private static string ReplaceWord(string content, string oldWord, string newWord) {
-        if (string.IsNullOrEmpty(content) || string.IsNullOrWhiteSpace(content)) {
-            throw new ArgumentException("Parameter is empty or null.", nameof(content));
-        }
+    private static string ExtractTextFromXml(string content) {
+        if (string.IsNullOrEmpty(content) || string.IsNullOrWhiteSpace(content)) return "";
 
-        string pattern = @$"\b{oldWord}\b";
+        var sb = new StringBuilder();
 
-        string replacedContent = Regex.Replace(content, pattern, newWord, RegexOptions.IgnoreCase);
+        const char openTag = '<';
+        const char closetag = '>';
 
-        return replacedContent;
+        return sb.ToString();
     }
 
     private static void WriteFile(string filePath, string content) {
@@ -46,11 +41,13 @@ public class Exercise008 {
             foreach (string line in lines) {
                 writer.WriteLine(line);
             }
+
         } catch (IOException) {
             Console.Error.WriteLine($"Can't write file '{filePath}'.");
         } catch (Exception e) {
             Console.Error.WriteLine(e.Message);
         }
+
     }
 
     private static string ReadFile(string filePath) {
@@ -68,7 +65,7 @@ public class Exercise008 {
         } catch (IOException) {
             Console.Error.WriteLine($"Can't read file '{filePath}'.");
         } catch (Exception e) {
-            Console.Error.WriteLine(e.Message);
+            Console.WriteLine(e.Message);
         }
 
         return sb.ToString();
