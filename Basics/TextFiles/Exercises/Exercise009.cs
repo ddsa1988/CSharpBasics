@@ -1,31 +1,41 @@
-﻿using System.Text;
+using System.Text;
+using Console = System.Console;
 
 namespace Basics.TextFiles.Exercises;
 
-public class Exercise007 {
-    // Write a program that replaces every occurrence of the substring "start" with "finish" in a text file.
+public class Exercise009 {
+    // Write a program that deletes all the odd lines of a text file.
     public static void UserMain() {
         char sepChar = Path.DirectorySeparatorChar;
-        string sourceFilePath = $"..{sepChar}..{sepChar}..{sepChar}TextFiles{sepChar}Files{sepChar}Exercise007_File1.txt";
-        string targetFilePath = $"..{sepChar}..{sepChar}..{sepChar}TextFiles{sepChar}Files{sepChar}Exercise007_File2.txt";
-
-        const string oldWord = "start";
-        const string newWord = "finish";
+        string sourceFilePath =
+            $"..{sepChar}..{sepChar}..{sepChar}TextFiles{sepChar}Files{sepChar}Exercise009_File1.txt";
+        string targetFilePath =
+            $"..{sepChar}..{sepChar}..{sepChar}TextFiles{sepChar}Files{sepChar}Exercise009_File2.txt";
 
         string content = ReadFile(sourceFilePath);
-        string replacedContent = ReplaceWord(content, oldWord, newWord);
-
-        WriteFile(targetFilePath, replacedContent);
+        string replaceContent = DeleteOddLines(content);
+        
+        Console.WriteLine(replaceContent);
     }
 
-    private static string ReplaceWord(string content, string oldWord, string newWord) {
-        if (string.IsNullOrEmpty(content) || string.IsNullOrWhiteSpace(content)) {
-            throw new ArgumentException("Parameter is empty or null.", nameof(content));
+    private static string DeleteOddLines(string content) {
+        if (string.IsNullOrEmpty(content) || string.IsNullOrWhiteSpace(content)) return "";
+
+        var sb = new StringBuilder();
+        string[] lines = content.Split('\n', StringSplitOptions.RemoveEmptyEntries);
+        int countLines = 0;
+
+        foreach (string line in lines) {
+            countLines++;
+
+            bool isOdd = countLines % 2 != 0;
+
+            if (!isOdd) continue;
+
+            sb.AppendLine(line);
         }
 
-        string replacedContent = content.Replace(oldWord, newWord, StringComparison.InvariantCultureIgnoreCase);
-
-        return replacedContent;
+        return sb.ToString();
     }
 
     private static void WriteFile(string filePath, string content) {
@@ -41,7 +51,6 @@ public class Exercise007 {
             foreach (string line in lines) {
                 writer.WriteLine(line);
             }
-
         } catch (IOException) {
             Console.Error.WriteLine($"Can't write file '{filePath}'.");
         } catch (Exception e) {
@@ -61,7 +70,6 @@ public class Exercise007 {
                 string? line = reader.ReadLine();
                 sb.Append(line + '\n');
             }
-
         } catch (IOException) {
             Console.Error.WriteLine($"Can't read file '{filePath}'.");
         } catch (Exception e) {
