@@ -14,17 +14,43 @@ public class Exercise010 {
         string content = ReadFile(sourceFilePath);
         string newContent = ExtractTextFromXml(content);
 
-        Console.WriteLine(content);
-        Console.WriteLine();
-        Console.WriteLine(newContent);
+        WriteFile(targetFilePath, newContent);
     }
 
     private static string ExtractTextFromXml(string content) {
         if (string.IsNullOrEmpty(content) || string.IsNullOrWhiteSpace(content)) return "";
 
-        var sb = new StringBuilder();
+        const char openTag = '<';
+        const char closeTag = '>';
 
-        return sb.ToString();
+        var sb = new StringBuilder();
+        var result = new List<string>();
+
+        bool tagOpened = false;
+
+        foreach (char value in content) {
+            if (value == openTag && !tagOpened) {
+
+                if (sb.Length > 0) {
+                    result.Add(sb.ToString());
+                    sb.Clear();
+                }
+
+                tagOpened = true;
+                continue;
+            }
+
+            if (value == closeTag && tagOpened) {
+                tagOpened = false;
+                continue;
+            }
+
+            if (tagOpened || value == '\n') continue;
+
+            sb.Append(value);
+        }
+
+        return string.Join("\n", result);
     }
 
     private static void WriteFile(string filePath, string content) {
