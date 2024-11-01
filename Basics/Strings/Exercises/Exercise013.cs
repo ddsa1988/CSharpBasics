@@ -6,7 +6,7 @@ public class Exercise013 {
     // Write a program that reverses the words in a given sentence without changing punctuation and spaces. 
     // For example: "C# is not C++ and PHP is not Delphi" => "Delphi not is PHP and C++ not is C#".
     public static void UserMain() {
-        string sample = "C# is not C++ and PHP is not Delphi";
+        const string sample = "C# is not C++ and PHP is not Delphi";
 
         Console.WriteLine(ReverseWords(sample));
     }
@@ -16,7 +16,7 @@ public class Exercise013 {
             throw new ArgumentException("Value is empty", nameof(text));
         }
 
-        StringBuilder sb = new StringBuilder();
+        var sb = new StringBuilder();
         string[] words = text.Split(" ");
         int length = words.Length;
 

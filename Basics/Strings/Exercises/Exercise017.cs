@@ -4,7 +4,7 @@ public class Exercise017 {
     // Write a program that reads a string from the console and prints in alphabetical order 
     // all letters from the input string and how many times each one of them occurs in the string.
     public static void UserMain() {
-        string sample = "Diego dos Santos Alexandre";
+        const string sample = "Diego dos Santos Alexandre";
 
         Dictionary<char, int> dict = CountTextLetters(sample);
         List<KeyValuePair<char, int>> dictOrdered = dict.OrderBy(x => x.Key).ToList();
@@ -26,10 +26,8 @@ public class Exercise017 {
         foreach (char value in text) {
             if (char.IsWhiteSpace(value)) continue;
 
-            if (dict.ContainsKey(value)) {
+            if (!dict.TryAdd(value, 1)) {
                 dict[value] += 1;
-            } else {
-                dict[value] = 1;
             }
         }
 

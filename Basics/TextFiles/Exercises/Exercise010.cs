@@ -6,8 +6,10 @@ public class Exercise010 {
     // Write a program that extracts from an XML file the text only (without the tags).
     public static void UserMain() {
         char sepChar = Path.DirectorySeparatorChar;
-        string sourceFilePath = $"..{sepChar}..{sepChar}..{sepChar}TextFiles{sepChar}Files{sepChar}Exercise010_File1.txt";
-        string targetFilePath = $"..{sepChar}..{sepChar}..{sepChar}TextFiles{sepChar}Files{sepChar}Exercise010_File2.txt";
+        string sourceFilePath =
+            $"..{sepChar}..{sepChar}..{sepChar}TextFiles{sepChar}Files{sepChar}Exercise010_File1.txt";
+        string targetFilePath =
+            $"..{sepChar}..{sepChar}..{sepChar}TextFiles{sepChar}Files{sepChar}Exercise010_File2.txt";
 
         string content = ReadFile(sourceFilePath);
         string newContent = ExtractTextFromXml(content);
@@ -21,9 +23,6 @@ public class Exercise010 {
         if (string.IsNullOrEmpty(content) || string.IsNullOrWhiteSpace(content)) return "";
 
         var sb = new StringBuilder();
-
-        const char openTag = '<';
-        const char closetag = '>';
 
         return sb.ToString();
     }
@@ -41,13 +40,11 @@ public class Exercise010 {
             foreach (string line in lines) {
                 writer.WriteLine(line);
             }
-
         } catch (IOException) {
             Console.Error.WriteLine($"Can't write file '{filePath}'.");
         } catch (Exception e) {
             Console.Error.WriteLine(e.Message);
         }
-
     }
 
     private static string ReadFile(string filePath) {

@@ -12,12 +12,12 @@ public class Exercise004 {
         The result is 9 occurrences.
     */
     public static void UserMain() {
-        string sample = """
+        const string sample = """
         We are living in a yellow submarine. We don't have anything else. Inside the submarine is very tight. 
         So we are drinking all the day. We will move out of it in 5 days.
         """;
 
-        string substring = "in";
+        const string substring = "in";
 
         Console.WriteLine(CountOccurrences(sample, substring));
     }
@@ -35,11 +35,11 @@ public class Exercise004 {
         string auxSubstring = substring.ToLower().Trim();
 
         int counter = 0;
-        int index = auxText.IndexOf(auxSubstring, 0);
+        int index = auxText.IndexOf(auxSubstring, 0, StringComparison.InvariantCultureIgnoreCase);
 
         while (index != -1) {
             counter++;
-            index = auxText.IndexOf(auxSubstring, index + 1);
+            index = auxText.IndexOf(auxSubstring, index + 1, StringComparison.InvariantCultureIgnoreCase);
         }
 
         return counter;

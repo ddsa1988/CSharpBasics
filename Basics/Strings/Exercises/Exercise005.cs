@@ -25,17 +25,17 @@ public class Exercise005 {
             throw new ArgumentException("Value is empty", nameof(text));
         }
 
-        StringBuilder sb = new StringBuilder();
+        var sb = new StringBuilder();
 
-        string openTag = "<upcase>";
-        string closeTag = "</upcase>";
+        const string openTag = "<upcase>";
+        const string closeTag = "</upcase>";
 
         int startIndex = 0;
         int indexOpenTag = -1;
         int indexCloseTag = -1;
 
         while (true) {
-            indexOpenTag = text.IndexOf(openTag, indexOpenTag + 1);
+            indexOpenTag = text.IndexOf(openTag, indexOpenTag + 1, StringComparison.InvariantCultureIgnoreCase);
 
             if (indexOpenTag == -1) {
 
@@ -47,7 +47,7 @@ public class Exercise005 {
                 break;
             }
 
-            indexCloseTag = text.IndexOf(closeTag, indexOpenTag + openTag.Length);
+            indexCloseTag = text.IndexOf(closeTag, indexOpenTag + openTag.Length, StringComparison.InvariantCultureIgnoreCase);
 
             if (indexCloseTag != -1 && startIndex < indexOpenTag) {
                 int indexStartSubstring = indexOpenTag + openTag.Length;

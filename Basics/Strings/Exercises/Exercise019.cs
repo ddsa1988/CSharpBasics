@@ -6,7 +6,7 @@ public class Exercise019 {
     // Write a program that reads a string from the console and replaces every sequence of identical
     // letters in it with a single letter (the repeating letter). Example: "aaaaabbbbbcdddeeeedssaa" => "abcdedsa".
     public static void UserMain() {
-        string sample = "aaaaabbbbbcdddeeeedssaa";
+        const string sample = "aaaaabbbbbcdddeeeedssaa";
 
         Console.WriteLine(GetSingleLetters(sample));
     }
@@ -16,7 +16,7 @@ public class Exercise019 {
             throw new ArgumentException("Value is empty", nameof(text));
         }
 
-        StringBuilder sb = new StringBuilder();
+        var sb = new StringBuilder();
         char lastChar = '\0';
 
         foreach (char value in text) {

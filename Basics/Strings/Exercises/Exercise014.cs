@@ -6,9 +6,8 @@ public partial class Exercise014 {
     // Enter the first date: 27.02.2006 Enter the second date: 3.03.2006. Distance: 4 days
     public static void UserMain() {
         const string dateFormat = "d.M.yyyy";
-
-        string sample1 = "27.02.2006";
-        string sample2 = "3.03.2006";
+        const string sample1 = "27.02.2006";
+        const string sample2 = "3.03.2006";
 
         DateTime start = GetDateFromString(sample1, dateFormat);
         DateTime end = GetDateFromString(sample2, dateFormat);

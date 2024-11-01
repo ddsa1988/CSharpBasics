@@ -16,12 +16,12 @@ public class Exercise010 {
         It uses advanced parser and special optimizer for the ********* ***.
     */
     public static void UserMain() {
-        string sample = """
+        const string sample = """
         Microsoft announced its next generation C# compiler today.
         It uses advanced parser and special optimizer for the Microsoft CLR.
         """;
 
-        string forbiddenWords = "C#,CLR,Microsoft";
+        const string forbiddenWords = "C#,CLR,Microsoft";
 
         string[] words = GetArrayOfWords(forbiddenWords);
         string newText = ReplaceTextWords(sample, words);
@@ -55,7 +55,7 @@ public class Exercise010 {
             throw new ArgumentException("Value is empty", nameof(text));
         }
 
-        char separator = ',';
+        const char separator = ',';
 
         string[] words = text.Split(separator);
 

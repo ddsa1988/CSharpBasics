@@ -2,7 +2,7 @@ namespace Basics.Strings.Examples;
 
 public class Example007 {
     public static void UserMain() {
-        string sample = "amanda letícia nunes perna";
+        const string sample = "amanda letícia nunes perna";
         string replaced = sample.Replace("a", "@");
 
         Console.WriteLine(sample);

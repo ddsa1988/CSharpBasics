@@ -14,12 +14,12 @@ public class Exercise009 {
         Sample result: We are living in a yellow submarine. We will move out of it in 5 days.
     */
     public static void UserMain() {
-        string sample = """
+        const string sample = """
         We are living in a yellow submarine.  We don't have anything else. Inside the submarine is very tight. 
         So we are drinking all the day. We will move out of it in 5 days.
         """;
 
-        string word = " in ";
+        const string word = " in ";
 
         Console.WriteLine(ExtractAllSentences(sample, word));
     }
@@ -38,14 +38,14 @@ public class Exercise009 {
         int startIndex = 0;
         int indexFound = text.IndexOf(separator, startIndex);
 
-        StringBuilder sb = new StringBuilder();
+       var sb = new StringBuilder();
 
         while (indexFound != -1) {
             string substring = text.Substring(startIndex, indexFound - startIndex + 1);
 
-            bool IsWordFound = substring.Contains(word);
+            bool isWordFound = substring.Contains(word);
 
-            if (IsWordFound) {
+            if (isWordFound) {
                 sb.Append(substring.Trim() + " ");
             }
 

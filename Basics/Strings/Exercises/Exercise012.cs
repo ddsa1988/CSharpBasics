@@ -15,26 +15,26 @@ public partial class Exercise012 {
         [resource]="/video"
     */
     public static void UserMain() {
-        string sample = "http://www.cnn.com/video";
+        const string sample = "http://www.cnn.com/video";
 
-        Console.WriteLine(ExtractURL(sample));
+        Console.WriteLine(ExtractUrl(sample));
     }
 
-    private static string ExtractURL(string url) {
+    private static string ExtractUrl(string url) {
         if (string.IsNullOrEmpty(url) || string.IsNullOrWhiteSpace(url)) {
             throw new ArgumentException("Value is empty", nameof(url));
         }
 
-        StringBuilder sb = new StringBuilder();
+        var sb = new StringBuilder();
 
         Regex regex = MyRegex();
         Match matches = regex.Match(url);
 
-        if (matches.Success) {
-            sb.Append($"[protocol]=\"{matches.Groups[1]}\"\n");
-            sb.Append($"[server]=\"{matches.Groups[3]}\"\n");
-            sb.Append($"[resource]=\"{matches.Groups[4]}\"\n");
-        }
+        if (!matches.Success) return sb.ToString();
+        
+        sb.Append($"[protocol]=\"{matches.Groups[1]}\"\n");
+        sb.Append($"[server]=\"{matches.Groups[3]}\"\n");
+        sb.Append($"[resource]=\"{matches.Groups[4]}\"\n");
 
         return sb.ToString();
     }

@@ -2,9 +2,9 @@ namespace Basics.Strings.Examples;
 
 public class Example001 {
     public static void UserMain() {
-        string str1 = "Diego";
-        string str2 = "diego";
-        string str3 = "Diego";
+        const string str1 = "Diego";
+        const string str2 = "diego";
+        const string str3 = "Diego";
 
         // Comparison for equality
         Console.WriteLine(str1.Equals(str2));
@@ -19,6 +19,6 @@ public class Example001 {
         Console.WriteLine();
 
         Console.WriteLine(string.Compare(str1, str2, StringComparison.CurrentCultureIgnoreCase));
-        Console.WriteLine(Object.ReferenceEquals(str1, str3));
+        Console.WriteLine(ReferenceEquals(str1, str3));
     }
 }

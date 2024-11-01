@@ -10,8 +10,8 @@ public class Exercise008 {
         Sample source text: "Test". Sample cipher code: "ab". The result should be the following: "\u0035\u0007\u0012\u0016".
     */
     public static void UserMain() {
-        string sampleText = "Test";
-        string sampleCode = "ab";
+        const string sampleText = "Test";
+        const string sampleCode = "ab";
 
         string[] unicodeSequence = GetEncryptedText(sampleText, sampleCode);
 

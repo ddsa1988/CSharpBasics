@@ -13,12 +13,12 @@ public class Exercise016 {
     private static bool IsPalindrome(string word) {
         if (string.IsNullOrEmpty(word) || string.IsNullOrWhiteSpace(word)) return false;
 
-        int Length = word.Length;
+        int length = word.Length;
         int mid = word.Length / 2;
         bool flag = true;
 
         for (int i = 0; i < mid; i++) {
-            if (word[i] == word[Length - i - 1]) continue;
+            if (word[i] == word[length - i - 1]) continue;
 
             flag = false;
             break;

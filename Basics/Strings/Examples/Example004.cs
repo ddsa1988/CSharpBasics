@@ -2,7 +2,7 @@ namespace Basics.Strings.Examples;
 
 public class Example004 {
     public static void UserMain() {
-        string sample = "amanda letícia nunes perna";
+        const string sample = "amanda letícia nunes perna";
 
         List<int> indexes = FindAllOccurrences(sample, "a");
 
@@ -20,13 +20,13 @@ public class Example004 {
             throw new ArgumentException("String is empty", nameof(search));
         }
 
-        List<int> indexes = new List<int>();
+        var indexes = new List<int>();
 
-        int index = source.IndexOf(search, 0);
+        int index = source.IndexOf(search, 0, StringComparison.InvariantCultureIgnoreCase);
 
         while (index != -1) {
             indexes.Add(index);
-            index = source.IndexOf(search, index + 1);
+            index = source.IndexOf(search, index + 1, StringComparison.InvariantCultureIgnoreCase);
         }
 
         return indexes;
