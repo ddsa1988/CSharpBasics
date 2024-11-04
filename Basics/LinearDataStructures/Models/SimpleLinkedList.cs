@@ -22,4 +22,41 @@ public class SimpleLinkedList<T> {
 
         Count++;
     }
+
+    public T? RemoveAt(int index) {
+        if (index < 0 || index >= Count) {
+            throw new IndexOutOfRangeException($"Invalid index: {index}");
+        }
+
+        int currentIndex = 0;
+        ListNode<T>? currentNode = head;
+        ListNode<T>? previousNode = null;
+
+        while (currentIndex < index) {
+            previousNode = currentNode;
+            currentNode = currentNode?.Next;
+            currentIndex++;
+        }
+
+        RemoveNode(currentNode, previousNode);
+
+        return currentNode == null ? default(T) : currentNode.Element;
+    }
+
+    private void RemoveNode(ListNode<T>? node, ListNode<T>? previousNode) {
+        Count--;
+        
+        if (Count == 0) {
+            head = null;
+            tail = head;
+        } else if (previousNode == null) {
+            head = node?.Next;
+        } else {
+            previousNode = node?.Next;
+        }
+
+        if (Equals(tail, node)) {
+            tail = previousNode;
+        }
+    }
 }
