@@ -5,7 +5,7 @@ using System.Collections;
 namespace Basics.LinearDataStructures.Examples;
 
 public class Example002 {
-    // The ArrayList class is untyped, so it can keep all kinds of elements – numbers, strings and other objects.
+    // The ArrayList class is untyped, so it can keep all kinds of elements - numbers, strings and other objects.
     public static void UserMain() {
         {
             var list = new ArrayList();
