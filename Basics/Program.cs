@@ -1,9 +1,9 @@
-﻿using Basics.LinearDataStructures.Examples;
+﻿using Basics.LinearDataStructures.Exercises;
 
 namespace Basics;
 
 public class Program {
     public static void Main(string[] args) {
-        Example006.UserMain();
+        Exercise003.UserMain();
     }
 }
