@@ -22,5 +22,9 @@ public class Exercise003 {
         if (numbers.Count == 0) return;
 
         Console.WriteLine("Numbers typed: {0}.", string.Join(", ", numbers));
+
+        numbers.Sort();
+
+        Console.WriteLine("Numbers sorted {0}.", string.Join(", ", numbers));
     }
 }
