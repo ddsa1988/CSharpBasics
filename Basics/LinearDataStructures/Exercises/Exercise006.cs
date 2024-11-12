@@ -28,13 +28,14 @@ public class Exercise006 {
     }
 
     private static List<int> RemoveOddOccurrencesValues(List<int> sourceList, Dictionary<int, int> countOccurrences) {
-        List<int> result = new List<int>();
+        var result = new List<int>();
 
         if (sourceList.Count == 0 || countOccurrences.Count == 0) return result;
 
         foreach (int value in sourceList) {
-            if (!countOccurrences.ContainsKey(value)) continue;
-            if (countOccurrences[value] % 2 != 0) continue;
+            if (!countOccurrences.TryGetValue(value, out int occurrence)) continue;
+            
+            if (occurrence % 2 != 0) continue;
 
             result.Add(value);
         }

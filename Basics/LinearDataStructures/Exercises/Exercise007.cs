@@ -5,7 +5,7 @@ public class Exercise007 {
     // Example: array = {3, 4, 4, 2, 3, 3, 4, 3, 2}
     // Result: 2 -> 2 times, 3 -> 4 times, 4 -> 3 times
     public static void UserMain() {
-        List<int> sourceList = new List<int>() { 3, 4, 4, 2, 3, 3, 4, 3, 2 };
+        var sourceList = new List<int>() { 3, 4, 4, 2, 3, 3, 4, 3, 2 };
 
         sourceList.Sort();
 
