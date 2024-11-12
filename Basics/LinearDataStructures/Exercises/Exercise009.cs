@@ -1,20 +1,17 @@
+using System;
+using System.Collections;
+using System.Xml.Linq;
+
 namespace Basics.LinearDataStructures.Exercises;
 
 public class Exercise009 {
-    // We are given the following sequence:
-    
-    // S1 = N;
-    // S2 = S1 + 1;
-    // S3 = 2*S1 + 1;
-    // S4 = S1 + 2;
-    // S5 = S2 + 1;
-    // S6 = 2*S2 + 1;
-    // S7 = S2 + 2;
-    
-    // Using the Queue<T> class, write a program which by given N prints on the console the first 50 elements of the sequence.
-    // Example: N=2 -> 2, 3, 5, 4, 4, 7, 5, 6, 11, 7, 5, 9, 6, ...
+    // Implement the data structure dynamic doubly linked list
+    // (DoublyLinkedList<T>) – list, the elements of which have pointers both
+    // to the next and the previous elements.Implement the operations for
+    // adding, removing and searching for an element, as well as inserting an
+    // element at a given index, retrieving an element by a given index and a
+    // method, which returns an array with the elements of the list.
     public static void UserMain() {
-        
     }
 }
 
