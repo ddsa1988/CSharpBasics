@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Basics", "Basics\Basics.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesignPatterns", "DesignPatterns\DesignPatterns.csproj", "{E69D9506-C151-44DA-9098-887AE7B36ADA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BulkyWeb", "BulkyWeb\BulkyWeb.csproj", "{232E470C-FE89-4C68-9807-D6C065D526CA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{E69D9506-C151-44DA-9098-887AE7B36ADA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E69D9506-C151-44DA-9098-887AE7B36ADA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E69D9506-C151-44DA-9098-887AE7B36ADA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{232E470C-FE89-4C68-9807-D6C065D526CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{232E470C-FE89-4C68-9807-D6C065D526CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{232E470C-FE89-4C68-9807-D6C065D526CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{232E470C-FE89-4C68-9807-D6C065D526CA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
