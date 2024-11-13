@@ -1,4 +1,4 @@
-﻿using Basics.TreesAndGraphsDataStructures.Examples;
+﻿using Basics.Principles_OOP.Examples;
 
 namespace Basics;
 
