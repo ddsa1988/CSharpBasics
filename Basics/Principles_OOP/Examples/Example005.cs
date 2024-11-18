@@ -1,6 +1,7 @@
 namespace Basics.Principles_OOP.Examples;
 
 public class Example005 {
+    // Abstract class
     public static void UserMain() {
         var cat = new Cat();
         var dog = new Dog();

@@ -1,6 +1,7 @@
 ﻿namespace Basics.Principles_OOP.Examples;
 
 public class Example003 {
+    // Interfaces
     public static void UserMain() {
         var car = new Car();
         var motorcycle = new Motorcycle();

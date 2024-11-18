@@ -1,6 +1,7 @@
 ﻿namespace Basics.Principles_OOP.Examples;
 
 public class Example004 {
+    // Interfaces
     public static void UserMain() {
         var test1 = new Test1();
         var test2 = new Test2();
