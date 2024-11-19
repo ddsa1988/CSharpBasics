@@ -1,9 +1,24 @@
-namespace Basics.Principles_OOP.Models;
+﻿namespace Basics.Principles_OOP.Models;
 
-public class Student {
-    public string Name { get; set; }
-    
-    public Student(string name) {
-        Name = name;
+public class Student : Human {
+    private float mark;
+    public Student(string firstName, string lastName, float mark) : base(firstName, lastName) {
+        Mark = mark;
+    }
+
+    public float Mark {
+        get => mark;
+        set {
+            if (value < 0 || value > 100) {
+                throw new ArgumentOutOfRangeException(nameof(value), "Value must be between 0 and 100.");
+            }
+
+            mark = value;
+        }
+    }
+
+    public override string ToString() {
+        return base.ToString() +
+               "\nMark: " + Mark.ToString("F2");
     }
 }

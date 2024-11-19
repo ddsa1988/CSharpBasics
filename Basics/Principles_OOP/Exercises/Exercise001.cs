@@ -1,13 +1,27 @@
-﻿namespace Basics.Principles_OOP.Exercises;
+﻿using static Basics.Classes.Examples.Example003;
+using static System.Runtime.InteropServices.JavaScript.JSType;
+using System.Buffers.Text;
+using Basics.Principles_OOP.Models;
+
+namespace Basics.Principles_OOP.Exercises;
 
 public class Exercise001 {
-    // We are given a school. The school has classes of students. Each class has a set of teachers.
-    // Each teacher teaches a set of courses. The students have a name and unique number in the class.
-    // Classes have a unique text identifier. Teachers have names. Courses have a name, count of classes 
-    // and count of exercises. The teachers as well as the students are people. Your task is to model the 
-    // classes (in terms of OOP) along with their attributes and operations define the class hierarchy 
-    // and create a class diagram with Visual Studio.
+    // Define a class Human with properties "first name" and "last name".
+    // Define the class Student inheriting Human, which has the property "mark".
+    // Define the class Worker inheriting Human with the property "wage" and "hours worked".
+    // Implement a "calculate hourly wage" method, which calculates a worker’s hourly pay rate based on wage and hours worked.
+    // Write the corresponding constructors and encapsulate all data in properties.
     public static void UserMain() {
+        var human = new Human("Diego", "Alexandre");
+        var student = new Student("Diego", "Alexandre", 80f);
+        var worker = new Worker("Diego", "Alexandre", 500, 20);
 
+        Console.WriteLine(human);
+        Console.WriteLine();
+
+        Console.WriteLine(student);
+        Console.WriteLine();
+
+        Console.WriteLine(worker);
     }
 }
