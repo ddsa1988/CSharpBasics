@@ -9,10 +9,10 @@ internal class Example006 {
     }
 
     private class Order {
-        private const string msg = "Order placed successfully.";
+        private const string Msg = "Order placed successfully.";
     
         public void PlaceOrder(INotificationService notification) {
-            notification.SendNotification(msg);
+            notification.SendNotification(Msg);
         }
     }
 
