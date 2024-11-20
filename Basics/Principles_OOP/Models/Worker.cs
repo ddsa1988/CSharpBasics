@@ -1,11 +1,13 @@
-﻿namespace Basics.Principles_OOP.Models;
+﻿using System.Globalization;
+
+namespace Basics.Principles_OOP.Models;
 
 public class Worker : Human {
+    private readonly CultureInfo cultureInfo = CultureInfo.CreateSpecificCulture("pt-BR");
     private double wage;
     private int hoursWorked;
 
-    public Worker(string firstName, string lastName) : base(firstName, lastName) {
-    }
+    public Worker(string firstName, string lastName) : base(firstName, lastName) { }
 
     public Worker(string firstName, string lastName, double wage, int hoursWorked) : this(firstName, lastName) {
         Wage = wage;
@@ -30,8 +32,8 @@ public class Worker : Human {
 
     public override string ToString() {
         return base.ToString() +
-               "\nWage: R$" + Wage.ToString("F2") +
+               "\nWage: " + Wage.ToString("C2", cultureInfo) +
                "\nHours worked: " + HoursWorked.ToString() +
-               "\nHourly wage: R$" + CalculateHourlyWage().ToString("F2");
+               "\nHourly wage: " + CalculateHourlyWage().ToString("C2", cultureInfo);
     }
 }

@@ -1,7 +1,4 @@
-﻿using static Basics.Classes.Examples.Example003;
-using static System.Runtime.InteropServices.JavaScript.JSType;
-using System.Buffers.Text;
-using Basics.Principles_OOP.Models;
+﻿using Basics.Principles_OOP.Models;
 
 namespace Basics.Principles_OOP.Exercises;
 

@@ -1,7 +1,8 @@
 ﻿namespace Basics.Principles_OOP.Models;
 
-public class Student : Human {
+public class Student : Human, IComparable<Student> {
     private float mark;
+
     public Student(string firstName, string lastName, float mark) : base(firstName, lastName) {
         Mark = mark;
     }
@@ -15,6 +16,10 @@ public class Student : Human {
 
             mark = value;
         }
+    }
+
+    public int CompareTo(Student? other) {
+        return other == null ? 1 : Mark.CompareTo(other.Mark);
     }
 
     public override string ToString() {
