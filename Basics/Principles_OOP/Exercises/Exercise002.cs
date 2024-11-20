@@ -1,5 +1,4 @@
-﻿using Basics.Classes.Models;
-using Student = Basics.Principles_OOP.Models.Student;
+﻿using Basics.Principles_OOP.Models;
 
 namespace Basics.Principles_OOP.Exercises;
 
@@ -18,9 +17,28 @@ public class Exercise002 {
             new Student("Daniel", "Larusso", 100f),
             new Student("Jonas", "Pereira", 90f),
         ];
-        
+
+        int length = students.Length;
+
+        for (int i = 0; i < length; i++) {
+            for (int j = i + 1; j < length; j++) {
+                Student actual = students[i];
+                Student next = students[j];
+
+                int result = actual.CompareTo(next);
+
+                if (result <= 0) continue;
+
+                Swap(ref students[i], ref students[j]);
+            }
+        }
+
         foreach (Student student in students) {
             Console.WriteLine(student + "\n");
         }
+    }
+
+    private static void Swap<T>(ref T obj1, ref T obj2) {
+        (obj1, obj2) = (obj2, obj1);
     }
 }

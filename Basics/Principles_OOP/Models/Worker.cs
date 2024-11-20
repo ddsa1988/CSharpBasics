@@ -2,7 +2,7 @@
 
 namespace Basics.Principles_OOP.Models;
 
-public class Worker : Human {
+public class Worker : Human, IComparable<Worker> {
     private readonly CultureInfo cultureInfo = CultureInfo.CreateSpecificCulture("pt-BR");
     private double wage;
     private int hoursWorked;
@@ -28,6 +28,10 @@ public class Worker : Human {
         double payRate = Wage * HoursWorked;
 
         return payRate;
+    }
+
+    public int CompareTo(Worker? other) {
+        return other == null ? 1 : Wage.CompareTo(other.Wage);
     }
 
     public override string ToString() {
