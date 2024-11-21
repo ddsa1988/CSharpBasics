@@ -1,9 +1,9 @@
-﻿using Basics.Principles_OOP.Exercises;
+﻿using Basics.HighQualityCode.Examples;
 
 namespace Basics;
 
 public class Program {
     public static void Main(string[] args) {
-        Exercise004.UserMain();
+        Example001.UserMain();
     }
 }

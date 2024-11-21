@@ -18,7 +18,7 @@ public class Exercise004 {
         ];
 
         foreach (Shape shape in shapes) {
-            Console.WriteLine("{0} area: {1}", shape.GetType().Name, shape.CalculateArea().ToString("F2"));
+            Console.WriteLine("{0} area: {1:F2}", shape.GetType().Name, shape.CalculateArea());
         }
     }
 }
