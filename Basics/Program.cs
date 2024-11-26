@@ -1,9 +1,10 @@
-﻿using Basics.SQLite;
+﻿// using Basics.SQLite.Examples;
+using Basics.Linq.Examples;
 
 namespace Basics;
 
 public class Program {
     public static void Main(string[] args) {
-        Example001.UserMain();
+        Example003.UserMain();
     }
 }
