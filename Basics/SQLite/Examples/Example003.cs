@@ -26,6 +26,8 @@ public class Example003 {
             command.Parameters.AddWithValue("@full_name", person.Name);
             command.Parameters.AddWithValue("@birthday", person.Birthday);
 
+            command.ExecuteNonQuery();
+
             Console.WriteLine("Data inserted.");
         } catch (SqliteException e) {
             Console.WriteLine(e.Message);
