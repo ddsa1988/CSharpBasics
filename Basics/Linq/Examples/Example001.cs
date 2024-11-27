@@ -5,7 +5,7 @@ namespace Basics.Linq.Examples;
 public class Example001 {
     // Extension methods
     public static void UserMain() {
-        string helloString = "Hello, Extension Methods!";
+        const string helloString = "Hello, Extension Methods!";
         int wordCount = helloString.WordCount();
 
         Console.WriteLine("'{0}' has {1} words.", helloString, wordCount);
