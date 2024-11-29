@@ -1,5 +1,4 @@
 using Microsoft.Data.Sqlite;
-using Basics.SQLite.Models;
 
 namespace Basics.SQLite.Examples;
 
@@ -24,7 +23,15 @@ public class Example004 {
             using SqliteDataReader reader = command.ExecuteReader();
 
             if (reader.HasRows) {
-                Console.WriteLine("Rows: " + reader);
+                while (reader.Read()) {
+                    int id = reader.GetInt32(0);
+                    string fullName = reader.GetString(1);
+                    DateTime birthday = reader.GetDateTime(2);
+
+                    Console.WriteLine($"{id}, {fullName}, {birthday}");
+                }
+            } else {
+                Console.WriteLine("No data found");
             }
         } catch (SqliteException e) {
             Console.WriteLine(e.Message);
