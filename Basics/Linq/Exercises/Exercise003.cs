@@ -1,3 +1,5 @@
+using Basics.Linq.Models;
+
 namespace Basics.Linq.Exercises;
 
 public class Exercise003 {
@@ -11,24 +13,12 @@ public class Exercise003 {
             new() { FirstName = "Rodrigo", LastName = "Santos", Age = 30 },
         };
 
-        IEnumerable<Student> result = from student in students
-                                      where string.Compare(student.FirstName, student.LastName, StringComparison.OrdinalIgnoreCase) <= 0
-                                      select student;
+        IEnumerable<Student> result =
+            from student in students
+            where string.Compare(student.FirstName, student.LastName, StringComparison.OrdinalIgnoreCase) <= 0
+            select student;
 
         Console.WriteLine(string.Join("\n", result));
-    }
-
-    private class Student {
-        public string FirstName { get; set; } = string.Empty;
-        public string LastName { get; set; } = string.Empty;
-        public int Age { get; set; }
-
-        public override string ToString() {
-            return "First name: " + FirstName +
-                   ", Last name: " + LastName +
-                   ", Age: " + Age;
-        }
-
     }
 }
 

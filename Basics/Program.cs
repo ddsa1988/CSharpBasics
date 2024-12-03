@@ -5,6 +5,6 @@ namespace Basics;
 
 public class Program {
     public static void Main(string[] args) {
-        Exercise003.UserMain();
+        Exercise007.UserMain();
     }
 }
