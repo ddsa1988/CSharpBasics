@@ -10,7 +10,7 @@ public class Example003 {
         string filePath = $"..{sepChar}..{sepChar}..{sepChar}SQLite{sepChar}DataBase{sepChar}Data.db";
         string connectionString = $"Data Source={filePath}";
 
-        InsertData(connectionString, new Person("Diego", new DateTime(1988, 01, 22)));
+        // InsertData(connectionString, new Person("Diego", new DateTime(1988, 01, 22)));
         InsertData(connectionString, new Person("Amanda", new DateTime(1993, 10, 16)));
     }
 

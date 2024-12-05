@@ -22,7 +22,7 @@ public class Example006 {
             using var command = new SqliteCommand(sql, connection);
             object? personCount = command.ExecuteScalar();
 
-            Console.WriteLine($"The number of person database is {personCount}.");
+            Console.WriteLine($"The number of Person in the database is {personCount}.");
         } catch (SqliteException e) {
             Console.WriteLine(e.Message);
         }
