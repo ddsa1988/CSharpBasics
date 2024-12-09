@@ -57,7 +57,7 @@ public class UserStack<T> {
         Capacity = newCapacity;
         T?[] tempArr = arr;
         arr = new T[Capacity];
-        
+
         if (arr.Length < tempArr.Length) Count = arr.Length;
 
         for (int i = 0; i < Count; i++) {
@@ -72,5 +72,9 @@ public class UserStack<T> {
 
             return arr[index];
         }
+    }
+
+    public override string ToString() {
+        return '[' + string.Join(", ", arr) + ']';
     }
 }

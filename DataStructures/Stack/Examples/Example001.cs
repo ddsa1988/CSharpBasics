@@ -11,17 +11,13 @@ public class Example001 {
         stack.Push(300);
         stack.Push(400);
         stack.Push(500);
-
-        PrintStack(stack);
-        Console.WriteLine();
+        
+        Console.WriteLine(stack.Pop());
+        Console.WriteLine(stack);
 
         stack.Resize(3);
-        PrintStack(stack);
-    }
-
-    private static void PrintStack<T>(UserStack<T> stack) {
-        for (int i = 0; i < stack.Count; i++) {
-            Console.Write(stack[i] + " ");
-        }
+        Console.WriteLine(stack);
+        
+        Console.WriteLine(stack.Peek());
     }
 }
