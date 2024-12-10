@@ -1,4 +1,4 @@
-﻿using DataStructures.Queue.Examples;
+﻿using DataStructures.Deque.Examples;
 
 namespace DataStructures;
 

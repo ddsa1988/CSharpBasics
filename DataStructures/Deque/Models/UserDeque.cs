@@ -23,24 +23,67 @@ public class UserDeque<T> {
         }
     }
 
-    public void AddFront(T item) { }
+    public void AddFront(T item) {
+        if (IsFull()) throw new InvalidOperationException("The deque is full.");
 
-    public void AddBack(T item) { }
+        if (IsEmpty()) {
+            AddBack(item);
+        } else {
+            int lastIndex = Count++;
+
+            for (int i = lastIndex; i > 0; i--) {
+                arr[i] = arr[i - 1];
+            }
+
+            arr[0] = item;
+        }
+    }
+
+    public void AddBack(T item) {
+        if (IsFull()) throw new InvalidOperationException("The deque is full.");
+
+        arr[Count++] = item;
+    }
 
     public T? RemoveFront() {
-        return default;
+        if (IsEmpty()) throw new InvalidOperationException("The deque is empty.");
+
+        T? item = arr[0];
+
+        int lastIndex = --Count;
+
+        for (int i = 0; i < lastIndex; i++) {
+            arr[i] = arr[i + 1];
+        }
+
+        arr[lastIndex] = default;
+
+        return item;
     }
 
     public T? RemoveBack() {
-        return default;
+        if (IsEmpty()) throw new InvalidOperationException("The deque is empty.");
+
+        T? item = arr[--Count];
+        arr[Count] = default;
+
+        return item;
     }
 
     public T? PeekFront() {
-        return default;
+        if (IsEmpty()) throw new InvalidOperationException("The deque is empty.");
+
+        T? item = arr[0];
+
+        return item;
     }
 
     public T? PeekBack() {
-        return default;
+        if (IsEmpty()) throw new InvalidOperationException("The deque is empty.");
+
+        T? item = arr[Count - 1];
+
+        return item;
     }
 
     public bool IsEmpty() {
@@ -56,7 +99,17 @@ public class UserDeque<T> {
         Count = 0;
     }
 
-    public void Resize(int newCapacity) { }
+    public void Resize(int newCapacity) {
+        Capacity = newCapacity;
+        T?[] tempArr = arr;
+        arr = new T?[Capacity];
+
+        if (arr.Length < tempArr.Length) Count = arr.Length;
+
+        for (int i = 0; i < Count; i++) {
+            arr[i] = tempArr[i];
+        }
+    }
 
     public T? this[int index] {
         get {

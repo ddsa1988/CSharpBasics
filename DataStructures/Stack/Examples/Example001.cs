@@ -3,6 +3,8 @@ using DataStructures.Stack.Models;
 namespace DataStructures.Stack.Examples;
 
 public class Example001 {
+    // A stack is an ordered collection of items that follows the last in, first out (LIFO) principle.
+    // The addition of new items or the removal of existing items takes place at the same end.
     public static void UserMain() {
         var stack = new UserStack<int>();
 
