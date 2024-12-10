@@ -1,4 +1,4 @@
-﻿using DataStructures.Stack.Examples;
+﻿using DataStructures.Queue.Examples;
 
 namespace DataStructures;
 

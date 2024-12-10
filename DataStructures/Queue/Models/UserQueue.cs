@@ -1,18 +1,18 @@
 using System.Text;
 
-namespace DataStructures.Stack.Models;
+namespace DataStructures.Queue.Models;
 
-public class UserStack<T> {
+public class UserQueue<T> {
     private T?[] arr;
     private int capacity;
     private const int DefaultCapacity = 5;
-    public int Count { get; private set; } = 0;
+    public int Count { get; private set; }
 
-    public UserStack() : this(DefaultCapacity) { }
+    public UserQueue() : this(DefaultCapacity) { }
 
-    public UserStack(int capacity) {
+    public UserQueue(int capacity) {
         Capacity = capacity;
-        arr = new T[Capacity];
+        arr = new T?[capacity];
     }
 
     public int Capacity {
@@ -23,25 +23,32 @@ public class UserStack<T> {
         }
     }
 
-    public void Push(T item) {
-        if (IsFull()) throw new InvalidOperationException("Stack is full.");
+    public void Enqueue(T item) {
+        if (IsFull()) throw new InvalidOperationException("Queue is full.");
 
         arr[Count++] = item;
     }
 
-    public T? Pop() {
-        if (IsEmpty()) throw new InvalidOperationException("Stack is empty.");
+    public T? Dequeue() {
+        if (IsEmpty()) throw new InvalidOperationException("Queue is empty.");
 
-        T? item = arr[--Count];
-        arr[Count] = default;
+        T? item = arr[0];
+
+        int lastIndex = --Count;
+
+        for (int i = 0; i < lastIndex; i++) {
+            arr[i] = arr[i + 1];
+        }
+
+        arr[lastIndex] = default;
 
         return item;
     }
 
     public T? Peek() {
-        if (IsEmpty()) throw new InvalidOperationException("Stack is empty");
+        if (IsEmpty()) throw new InvalidOperationException("Queue is empty.");
 
-        T? item = arr[Count - 1];
+        T? item = arr[0];
 
         return item;
     }
@@ -55,14 +62,14 @@ public class UserStack<T> {
     }
 
     public void Clear() {
-        arr = new T[Capacity];
+        arr = new T?[Capacity];
         Count = 0;
     }
 
     public void Resize(int newCapacity) {
         Capacity = newCapacity;
         T?[] tempArr = arr;
-        arr = new T[Capacity];
+        arr = new T?[Capacity];
 
         if (arr.Length < tempArr.Length) Count = arr.Length;
 
