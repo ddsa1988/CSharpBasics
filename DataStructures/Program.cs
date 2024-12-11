@@ -1,4 +1,4 @@
-﻿using DataStructures.Deque.Examples;
+﻿using DataStructures.LinkedList.Examples;
 
 namespace DataStructures;
 
