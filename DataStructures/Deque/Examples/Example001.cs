@@ -16,5 +16,19 @@ public class Example001 {
         
         Console.WriteLine(deque);
         Console.WriteLine(deque.Count);
+        Console.WriteLine();
+        
+        Console.WriteLine(deque.RemoveFront());
+        Console.WriteLine(deque);
+        Console.WriteLine(deque.Count);
+        Console.WriteLine();
+        
+        Console.WriteLine(deque.RemoveBack());
+        Console.WriteLine(deque);
+        Console.WriteLine(deque.Count);
+        Console.WriteLine();
+        
+        Console.WriteLine(deque.PeekFront());
+        Console.WriteLine(deque.PeekBack());
     }
 }
