@@ -22,7 +22,7 @@ public class Example001 {
         Console.WriteLine(list);
         Console.WriteLine();
         
-        list.InsertAt("Rodrigo", 2);
+        list.InsertAt("Rodrigo", 3);
         Console.WriteLine(list);
         Console.WriteLine(list.Count);
     }

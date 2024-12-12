@@ -29,9 +29,7 @@ public class UserLinkedList<T> {
     }
 
     public void InsertAt(T element, int index) {
-        IsIndexValid(index);
-        
-        if (head == null) {
+        if (head == null || index >= Count) {
             Push(element);
         } else {
             var newNode = new Node<T>(element);
