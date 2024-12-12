@@ -30,26 +30,78 @@ public class UserLinkedList<T> {
 
     public void InsertAt(T element, int index) {
         IsIndexValid(index);
-
+        
         if (head == null) {
             Push(element);
         } else {
+            var newNode = new Node<T>(element);
 
+            if (index == 0) {
+                newNode.Next = head;
+                head = newNode;
+            } else {
+                Node<T>? previous = GetElementAt(index - 1);
+
+                if (previous == null) return;
+
+                Node<T>? current = previous.Next;
+                newNode.Next = current;
+                previous.Next = newNode;
+            }
+
+            Count++;
         }
     }
 
     public int IndexOf(T element) {
+        if (head == null || element == null) return -1;
+
+        Node<T> current = head;
+        int index = 0;
+
+        while (current.Next != null) {
+            if (element.Equals(current.Element)) {
+                return index;
+            }
+
+            current = current.Next;
+            index++;
+        }
+
         return -1;
     }
 
-    public T? GetElementAt(int index) {
+    public Node<T>? GetElementAt(int index) {
+        if (head == null) return default;
+
         IsIndexValid(index);
 
-        return default;
+        Node<T> current = head;
+
+        for (int i = 0; i < index && current.Next != null; i++) {
+            current = current.Next;
+        }
+
+        return current;
     }
 
     public void RemoveAt(int index) {
+        if (head == null) return;
+
         IsIndexValid(index);
+
+        if (index == 0) {
+            head = head.Next;
+        } else {
+            Node<T>? previous = GetElementAt(index - 1);
+
+            if (previous == null) return;
+
+            Node<T>? current = previous.Next;
+            previous.Next = current?.Next;
+        }
+
+        Count--;
     }
 
     public void Clear() {
@@ -69,16 +121,18 @@ public class UserLinkedList<T> {
     }
 
     public override string ToString() {
-        if (IsEmpty()) return string.Empty;
+        if (head == null) return string.Empty;
 
         var sb = new StringBuilder();
 
-        Node<T>? current = head;
+        Node<T> current = head;
 
-        while (current != null) {
+        while (current.Next != null) {
             sb.Append(current.Element + "\n");
             current = current.Next;
         }
+
+        sb.Append(current.Element);
 
         return sb.ToString();
     }
