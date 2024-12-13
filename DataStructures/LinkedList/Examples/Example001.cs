@@ -8,10 +8,15 @@ public class Example001 {
 
         list.Push("Diego");
         list.Push("Amanda");
-        list.Push("Amora");
-        list.Push("Ameixa");
+        list.InsertAt("Amora", 0);
+        list.InsertAt("Ameixa", 2);
 
-        Console.WriteLine(list.RemoveAt(0) + "\n");
+        Console.WriteLine(list + "\n");
+        
+        Console.WriteLine(list.Remove("Diego"));
+        Console.WriteLine(list.RemoveAt(0));
+        Console.WriteLine();
+        
         Console.WriteLine(list);
         Console.WriteLine(list.Count);
     }
