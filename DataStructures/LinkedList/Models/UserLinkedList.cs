@@ -70,7 +70,7 @@ public class UserLinkedList<T> {
     }
 
     public Node<T>? GetElementAt(int index) {
-        if (head == null) return default;
+        if (head == null) return null;
 
         IsIndexValid(index);
 
