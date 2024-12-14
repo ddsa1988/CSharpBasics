@@ -11,6 +11,8 @@ public class UserLinkedList<T> {
     }
 
     public void Push(T element) {
+        if (element == null) throw new ArgumentNullException(nameof(element));
+        
         var node = new Node<T>(element);
 
         if (Head == null) {
@@ -29,6 +31,8 @@ public class UserLinkedList<T> {
     }
 
     public void InsertAt(T element, int index) {
+        if (element == null) throw new ArgumentNullException(nameof(element));
+        
         if (Head == null || index >= Count) {
             Push(element);
         } else {
@@ -88,6 +92,7 @@ public class UserLinkedList<T> {
     }
 
     public int Remove(T element) {
+        if (element == null) throw new ArgumentNullException(nameof(element));
         if (Head == null) throw new InvalidOperationException("List is empty");
 
         int index = IndexOf(element);
