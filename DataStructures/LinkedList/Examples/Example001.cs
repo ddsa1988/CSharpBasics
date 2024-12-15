@@ -4,7 +4,7 @@ namespace DataStructures.LinkedList.Examples;
 
 public class Example001 {
     public static void UserMain() {
-        var list = new UserLinkedList<string>();
+        var list = new SinglyLinkedList<string>();
 
         list.Push("Diego");
         list.Push("Amanda");

@@ -2,23 +2,23 @@
 
 namespace DataStructures.LinkedList.Models;
 
-public class UserLinkedList<T> {
-    public Node<T>? Head { get; private set; }
+public class SinglyLinkedList<T> {
+    public SinglyNode<T>? Head { get; private set; }
     public int Count { get; private set; }
 
-    public UserLinkedList() {
+    public SinglyLinkedList() {
         Head = null;
     }
 
     public void Push(T element) {
         if (element == null) throw new ArgumentNullException(nameof(element));
         
-        var node = new Node<T>(element);
+        var node = new SinglyNode<T>(element);
 
         if (Head == null) {
             Head = node;
         } else {
-            Node<T> current = Head;
+            SinglyNode<T> current = Head;
 
             while (current.Next != null) {
                 current = current.Next;
@@ -36,14 +36,14 @@ public class UserLinkedList<T> {
         if (Head == null || index >= Count) {
             Push(element);
         } else {
-            var node = new Node<T>(element);
+            var node = new SinglyNode<T>(element);
 
             if (index == 0) {
                 node.Next = Head;
                 Head = node;
             } else {
-                Node<T> previous = GetNodeAt(index - 1);
-                Node<T>? current = previous.Next;
+                SinglyNode<T> previous = GetNodeAt(index - 1);
+                SinglyNode<T>? current = previous.Next;
 
                 node.Next = current;
                 previous.Next = node;
@@ -57,7 +57,7 @@ public class UserLinkedList<T> {
         if (Head == null) throw new InvalidOperationException("List is empty");
         if (element == null) throw new ArgumentNullException(nameof(element));
 
-        Node<T>? current = Head;
+        SinglyNode<T>? current = Head;
 
         for (int i = 0; i < Count && current != null; i++) {
             if (element.Equals(current.Element)) {
@@ -70,23 +70,23 @@ public class UserLinkedList<T> {
         return -1;
     }
 
-    private Node<T> GetNodeAt(int index) {
+    private SinglyNode<T> GetNodeAt(int index) {
         if (Head == null) throw new InvalidOperationException("List is empty");
 
         ArgumentOutOfRangeException.ThrowIfLessThan(index, 0, nameof(index));
         ArgumentOutOfRangeException.ThrowIfGreaterThanOrEqual(index, Count, nameof(index));
 
-        Node<T> node = Head;
+        SinglyNode<T> singlyNode = Head;
 
-        for (int i = 0; i < index && node.Next != null; i++) {
-            node = node.Next;
+        for (int i = 0; i < index && singlyNode.Next != null; i++) {
+            singlyNode = singlyNode.Next;
         }
 
-        return node;
+        return singlyNode;
     }
 
     public T? GetElementAt(int index) {
-        Node<T> current = GetNodeAt(index);
+        SinglyNode<T> current = GetNodeAt(index);
 
         return current.Element;
     }
@@ -106,12 +106,12 @@ public class UserLinkedList<T> {
     public T RemoveAt(int index) {
         if (Head == null) throw new InvalidOperationException("List is empty");
 
-        Node<T> current = Head;
+        SinglyNode<T> current = Head;
 
         if (index == 0) {
             Head = current.Next;
         } else {
-            Node<T> previous = GetNodeAt(index - 1);
+            SinglyNode<T> previous = GetNodeAt(index - 1);
             current = previous.Next ?? throw new IndexOutOfRangeException("Index is out of range");
             previous.Next = current.Next;
         }
@@ -134,7 +134,7 @@ public class UserLinkedList<T> {
 
         var sb = new StringBuilder();
 
-        Node<T> current = Head;
+        SinglyNode<T> current = Head;
 
         while (current.Next != null) {
             sb.Append(current.Element + "\n");
